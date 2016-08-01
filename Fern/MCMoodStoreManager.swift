@@ -69,10 +69,6 @@ class MCMoodStoreManager: NSObject {
     
     func addMoodToStore(mood : MCMood) -> Bool{
         
-        
-    
-        
-        
         let newMood = NSEntityDescription.insertNewObject(forEntityName: "MoodObject", into: (container?.viewContext)!)
         newMood.setValue(mood.moodName, forKey: "moodname")
         newMood.setValue(mood.moodNotes, forKey: "moodnotes")

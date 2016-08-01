@@ -51,6 +51,15 @@ class MCMood: NSObject {
         moodLat = (lat as Double?)!
         moodLon = (lon as Double?)!
         moodDate = date
+        
+        if moodLat == 0{
+            if moodLon == 0{
+                hasLocation = false
+            }
+        }else{
+            moodLocation = CLLocationCoordinate2D(latitude: CLLocationDegrees(moodLat), longitude: CLLocationDegrees(moodLon))
+            hasLocation = true
+        }
     }
     
 }

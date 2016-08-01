@@ -11,11 +11,23 @@
 		4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5881D484856000633A0 /* MCMoodCellController.swift */; };
 		4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */; };
 		4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58C1D484A6A000633A0 /* MCMood.swift */; };
-		4C2AB5941D48629B000633A0 /* MCDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5931D48629B000633A0 /* MCDateParser.swift */; };
 		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
 		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
 		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
 		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
+		4C9A53F51D4F38330067F558 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A53F31D4F38330067F558 /* Interface.storyboard */; };
+		4C9A53F71D4F38330067F558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A53F61D4F38330067F558 /* Assets.xcassets */; };
+		4C9A53FE1D4F38340067F558 /* Fern Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C9A53FD1D4F38340067F558 /* Fern Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C9A54051D4F38340067F558 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A54041D4F38340067F558 /* InterfaceController.swift */; };
+		4C9A54071D4F38340067F558 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A54061D4F38340067F558 /* ExtensionDelegate.swift */; };
+		4C9A54091D4F38340067F558 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A54081D4F38340067F558 /* NotificationController.swift */; };
+		4C9A540B1D4F38340067F558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A540A1D4F38340067F558 /* Assets.xcassets */; };
+		4C9A540F1D4F38340067F558 /* Fern Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4C9A53F11D4F38330067F558 /* Fern Watch.app */; };
+		4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A54181D4F396F0067F558 /* SignPainter.ttc */; };
+		4C9A541A1D4F396F0067F558 /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A54181D4F396F0067F558 /* SignPainter.ttc */; };
+		4C9A541B1D4F396F0067F558 /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A54181D4F396F0067F558 /* SignPainter.ttc */; };
+		4C9A541D1D4F43100067F558 /* MCDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A541C1D4F43100067F558 /* MCDateExtension.swift */; };
+		4C9A541E1D4F43100067F558 /* MCDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A541C1D4F43100067F558 /* MCDateExtension.swift */; };
 		4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */; };
 		4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF301D46E4E7000A413E /* ViewController.swift */; };
 		4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF321D46E4E7000A413E /* Main.storyboard */; };
@@ -27,16 +39,70 @@
 		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C9A53FF1D4F38340067F558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CBBCF231D46E4E6000A413E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C9A53FC1D4F38340067F558;
+			remoteInfo = "Fern Watch Extension";
+		};
+		4C9A540D1D4F38340067F558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CBBCF231D46E4E6000A413E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C9A53F01D4F38330067F558;
+			remoteInfo = "Fern Watch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C9A54131D4F38340067F558 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4C9A53FE1D4F38340067F558 /* Fern Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C9A54171D4F38340067F558 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				4C9A540F1D4F38340067F558 /* Fern Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4C2AB5861D484787000633A0 /* MCMoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMoodCellView.xib; sourceTree = "<group>"; };
 		4C2AB5881D484856000633A0 /* MCMoodCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodCellController.swift; sourceTree = "<group>"; };
 		4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCHistoryViewController.swift; sourceTree = "<group>"; };
 		4C2AB58C1D484A6A000633A0 /* MCMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMood.swift; sourceTree = "<group>"; };
-		4C2AB5931D48629B000633A0 /* MCDateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDateParser.swift; sourceTree = "<group>"; };
 		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
 		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
+		4C9A53F11D4F38330067F558 /* Fern Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fern Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C9A53F41D4F38330067F558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		4C9A53F61D4F38330067F558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C9A53F81D4F38330067F558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C9A53FD1D4F38340067F558 /* Fern Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Fern Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C9A54031D4F38340067F558 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		4C9A54041D4F38340067F558 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		4C9A54061D4F38340067F558 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		4C9A54081D4F38340067F558 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		4C9A540A1D4F38340067F558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C9A540C1D4F38340067F558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C9A54181D4F396F0067F558 /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
+		4C9A541C1D4F43100067F558 /* MCDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDateExtension.swift; sourceTree = "<group>"; };
 		4CBBCF2B1D46E4E7000A413E /* Fern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CBBCF301D46E4E7000A413E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +121,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4C9A53FA1D4F38340067F558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CBBCF281D46E4E6000A413E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,9 +166,41 @@
 			children = (
 				4C2AB58C1D484A6A000633A0 /* MCMood.swift */,
 				4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */,
-				4C2AB5931D48629B000633A0 /* MCDateParser.swift */,
+				4C9A541C1D4F43100067F558 /* MCDateExtension.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4C9A53F21D4F38330067F558 /* Fern Watch */ = {
+			isa = PBXGroup;
+			children = (
+				4C9A54181D4F396F0067F558 /* SignPainter.ttc */,
+				4C9A53F31D4F38330067F558 /* Interface.storyboard */,
+				4C9A53F61D4F38330067F558 /* Assets.xcassets */,
+				4C9A53F81D4F38330067F558 /* Info.plist */,
+			);
+			path = "Fern Watch";
+			sourceTree = "<group>";
+		};
+		4C9A54011D4F38340067F558 /* Fern Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4C9A54041D4F38340067F558 /* InterfaceController.swift */,
+				4C9A54061D4F38340067F558 /* ExtensionDelegate.swift */,
+				4C9A54081D4F38340067F558 /* NotificationController.swift */,
+				4C9A540A1D4F38340067F558 /* Assets.xcassets */,
+				4C9A540C1D4F38340067F558 /* Info.plist */,
+				4C9A54021D4F38340067F558 /* Supporting Files */,
+			);
+			path = "Fern Watch Extension";
+			sourceTree = "<group>";
+		};
+		4C9A54021D4F38340067F558 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C9A54031D4F38340067F558 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4CBBCF221D46E4E6000A413E = {
@@ -104,6 +209,8 @@
 				4CBBCF2D1D46E4E7000A413E /* Fern */,
 				4CBBCF451D46E4E7000A413E /* FernTests */,
 				4CBBCF501D46E4E7000A413E /* FernUITests */,
+				4C9A53F21D4F38330067F558 /* Fern Watch */,
+				4C9A54011D4F38340067F558 /* Fern Watch Extension */,
 				4CBBCF2C1D46E4E7000A413E /* Products */,
 				4CBBCF5F1D46E4F9000A413E /* Frameworks */,
 			);
@@ -113,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				4CBBCF2B1D46E4E7000A413E /* Fern.app */,
+				4C9A53F11D4F38330067F558 /* Fern Watch.app */,
+				4C9A53FD1D4F38340067F558 /* Fern Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +273,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4C9A53F01D4F38330067F558 /* Fern Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C9A54141D4F38340067F558 /* Build configuration list for PBXNativeTarget "Fern Watch" */;
+			buildPhases = (
+				4C9A53EF1D4F38330067F558 /* Resources */,
+				4C9A54131D4F38340067F558 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C9A54001D4F38340067F558 /* PBXTargetDependency */,
+			);
+			name = "Fern Watch";
+			productName = "Fern Watch";
+			productReference = 4C9A53F11D4F38330067F558 /* Fern Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		4C9A53FC1D4F38340067F558 /* Fern Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C9A54101D4F38340067F558 /* Build configuration list for PBXNativeTarget "Fern Watch Extension" */;
+			buildPhases = (
+				4C9A53F91D4F38340067F558 /* Sources */,
+				4C9A53FA1D4F38340067F558 /* Frameworks */,
+				4C9A53FB1D4F38340067F558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fern Watch Extension";
+			productName = "Fern Watch Extension";
+			productReference = 4C9A53FD1D4F38340067F558 /* Fern Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		4CBBCF2A1D46E4E6000A413E /* Fern */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CBBCF561D46E4E7000A413E /* Build configuration list for PBXNativeTarget "Fern" */;
@@ -171,10 +314,12 @@
 				4CBBCF271D46E4E6000A413E /* Sources */,
 				4CBBCF281D46E4E6000A413E /* Frameworks */,
 				4CBBCF291D46E4E6000A413E /* Resources */,
+				4C9A54171D4F38340067F558 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4C9A540E1D4F38340067F558 /* PBXTargetDependency */,
 			);
 			name = Fern;
 			productName = Fern;
@@ -191,6 +336,18 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michael Coleman";
 				TargetAttributes = {
+					4C9A53F01D4F38330067F558 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MSLBTXC447;
+						DevelopmentTeamName = "Michael Colmena (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
+					4C9A53FC1D4F38340067F558 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MSLBTXC447;
+						DevelopmentTeamName = "Michael Colmena (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
 					4CBBCF2A1D46E4E6000A413E = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MSLBTXC447;
@@ -213,11 +370,32 @@
 			projectRoot = "";
 			targets = (
 				4CBBCF2A1D46E4E6000A413E /* Fern */,
+				4C9A53F01D4F38330067F558 /* Fern Watch */,
+				4C9A53FC1D4F38340067F558 /* Fern Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C9A53EF1D4F38330067F558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C9A541A1D4F396F0067F558 /* SignPainter.ttc in Resources */,
+				4C9A53F71D4F38330067F558 /* Assets.xcassets in Resources */,
+				4C9A53F51D4F38330067F558 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C9A53FB1D4F38340067F558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C9A541B1D4F396F0067F558 /* SignPainter.ttc in Resources */,
+				4C9A540B1D4F38340067F558 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CBBCF291D46E4E6000A413E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +403,7 @@
 				4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */,
 				4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */,
 				4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */,
+				4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */,
 				4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */,
 				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
 				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,
@@ -234,12 +413,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C9A53F91D4F38340067F558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C9A54091D4F38340067F558 /* NotificationController.swift in Sources */,
+				4C9A54071D4F38340067F558 /* ExtensionDelegate.swift in Sources */,
+				4C9A54051D4F38340067F558 /* InterfaceController.swift in Sources */,
+				4C9A541E1D4F43100067F558 /* MCDateExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CBBCF271D46E4E6000A413E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */,
-				4C2AB5941D48629B000633A0 /* MCDateParser.swift in Sources */,
+				4C9A541D1D4F43100067F558 /* MCDateExtension.swift in Sources */,
 				4CBBCF371D46E4E7000A413E /* Fern.xcdatamodeld in Sources */,
 				4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */,
 				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
@@ -253,7 +443,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4C9A54001D4F38340067F558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C9A53FC1D4F38340067F558 /* Fern Watch Extension */;
+			targetProxy = 4C9A53FF1D4F38340067F558 /* PBXContainerItemProxy */;
+		};
+		4C9A540E1D4F38340067F558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C9A53F01D4F38330067F558 /* Fern Watch */;
+			targetProxy = 4C9A540D1D4F38340067F558 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		4C9A53F31D4F38330067F558 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C9A53F41D4F38330067F558 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		4CBBCF321D46E4E7000A413E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -273,6 +484,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4C9A54111D4F38340067F558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "Fern Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		4C9A54121D4F38340067F558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "Fern Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		4C9A54151D4F38340067F558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Fern_Watch_Extension;
+				INFOPLIST_FILE = "Fern Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		4C9A54161D4F38340067F558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Fern_Watch_Extension;
+				INFOPLIST_FILE = "Fern Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 		4CBBCF541D46E4E7000A413E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -393,6 +670,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C9A54101D4F38340067F558 /* Build configuration list for PBXNativeTarget "Fern Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C9A54111D4F38340067F558 /* Debug */,
+				4C9A54121D4F38340067F558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C9A54141D4F38340067F558 /* Build configuration list for PBXNativeTarget "Fern Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C9A54151D4F38340067F558 /* Debug */,
+				4C9A54161D4F38340067F558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CBBCF261D46E4E6000A413E /* Build configuration list for PBXProject "Fern" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

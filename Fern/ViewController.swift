@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextViewDelegate{
     
     var locationOn : Bool = true
     var locationManager = CLLocationManager()
@@ -22,23 +22,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet var interfaceView : UIView!
     @IBOutlet weak var lastMoodLabel: UILabel!
     @IBOutlet weak var locationToggle: UISwitch!
-    @IBOutlet weak var moodNoteField: UITextField!
+    @IBOutlet weak var moodNoteField: UITextView!
     @IBOutlet weak var moodNameField: UITextField!
-    
+    @IBOutlet var moodTimeDiffLabel : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        
-        let colOne = UIColor.init(red: 1, green: 0.533, blue: 0.29, alpha: 1).cgColor
-        let colTwo = UIColor.init(red: 1, green: 0.18, blue: 0, alpha: 1).cgColor
-        gradientLayer.colors=[colOne,colTwo]
-        gradientLayer.locations=[-0.5, 1.5]
-        self.view.layer.addSublayer(gradientLayer)
+
         interfaceView.backgroundColor = UIColor.clear()
         self.view.addSubview(interfaceView)
+        self.view.backgroundColor = UIColor.init(patternImage: UIImage.init(imageLiteralResourceName: "bg"))
+        
+        
         
         locationManager.delegate = self;
         moodNameField.delegate = self;
@@ -51,9 +47,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         
         self.setupInterface()
-   
         
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +67,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     func setupInterface(){
         
+        self.moodNameField.text = ""
+        self.moodNoteField.text = ""
+        
         //Get last Mood from MoodManager
         lastMood = moodManager.getLastMood()
         if lastMood?.moodName == ""{
@@ -78,22 +77,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             
         }else{
             lastMoodLabel.text = lastMood?.moodName
+            moodTimeDiffLabel.text = NSDate().timeDifferenceToString(date: (lastMood?.moodDate)!) as String + " you were feeling"
         }
+        
         
         
         switch CLLocationManager.authorizationStatus(){
         case .authorizedAlways:
-            locationToggle.isEnabled = true
+           // locationToggle.isEnabled = true
             locationManager.startUpdatingLocation()
             break;
         case .authorizedWhenInUse:
-            locationToggle.isEnabled = false
+          //  locationToggle.isEnabled = false
             break;
         case .restricted:
-            locationToggle.isEnabled = false
+          //  locationToggle.isEnabled = false
             break;
         case .denied:
-            locationToggle.isEnabled = false
+          //  locationToggle.isEnabled = false
             break
         default:
             break
@@ -116,14 +117,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
 
     @IBAction func AddMood(_ sender: AnyObject) {
-        let newMood : MCMood = MCMood(name: moodNameField.text!, notes: moodNoteField.text, lat:locationManager.location?.coordinate.latitude , lon: locationManager.location?.coordinate.longitude, date: NSDate())
+        var currentLocation : CLLocation = locationManager.location!
+        
+        let newMood : MCMood = MCMood(name: moodNameField.text!, notes: moodNoteField.text, lat:currentLocation.coordinate.latitude , lon: currentLocation.coordinate.longitude, date: NSDate())
         let success : Bool = moodManager.addMoodToStore(mood: newMood)
        
         if !success{
             print("Couldn't add mood")
             
         }
+        self.setupInterface()
     
+    }
+    
+    @IBAction func AddNotes(_ sender: AnyObject){
+        if(moodNoteField.isHidden){
+            moodNoteField.isHidden = false
+        }else{
+            if(moodNoteField.text != ""){
+                //Display an alert that any text entered will be lost.
+            }
+            moodNoteField.isHidden = true
+        }
     }
 
 }
