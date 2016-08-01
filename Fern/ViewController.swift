@@ -42,7 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         locationManager.delegate = self;
         moodNameField.delegate = self;
-//        moodNoteField.delegate = self;
+        moodNoteField.delegate = self;
         
         //Move to "first run" function.
         if CLLocationManager.authorizationStatus() == .notDetermined{
@@ -65,52 +65,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         if segue.identifier == "mooddetails" {
             let moodDetailsVC = segue.destinationViewController as! MoodDetailsViewController
-            //moodDetailsVC.moodData = previousMoods.first
-        }else if segue.identifier == "moodhistory" {
-            let moodHistoryVC = segue.destinationViewController as! MCHistoryViewController
-            //moodHistoryVC.moodObjects=previousMoods
+            moodDetailsVC.moodData = lastMood
         }
-        
     }
     
     func setupInterface(){
-//        let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
-//        let container : NSPersistentContainer = appDel.persistentContainer
-//        
-        
-       
-
-//        //Get any current mood data
-//        do{
-//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
-//            let results = try container.viewContext.fetch(request)
-//            
-//            if results.count > 0{
-//                for obj in results{
-//                    let lastResult : NSManagedObject = obj as! NSManagedObject
-//                    previousMoods.append(MCMood(object: lastResult))
-//                }
-//              
-//                previousMoods.reverse()
-//                lastMoodLabel.text = previousMoods.first?.moodName
-//                
-//                
-//              
-//                
-//                
-//            }
-//                
-//            
-//            
-//            
-//            
-//        }catch{
-//            
-//        }
         
         //Get last Mood from MoodManager
         lastMood = moodManager.getLastMood()
         if lastMood?.moodName == ""{
+            //No last mood. HANDLE THIS
+            
         }else{
             lastMoodLabel.text = lastMood?.moodName
         }
@@ -151,7 +116,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
 
     @IBAction func AddMood(_ sender: AnyObject) {
-        //var newMood : MCMood = MCMood(name: moodNameField.text, notes: moodNoteField.text, lat: , lon: <#T##Double?#>, date: <#T##NSDate#>)
+        let newMood : MCMood = MCMood(name: moodNameField.text!, notes: moodNoteField.text, lat:locationManager.location?.coordinate.latitude , lon: locationManager.location?.coordinate.longitude, date: NSDate())
+        let success : Bool = moodManager.addMoodToStore(mood: newMood)
+       
+        if !success{
+            print("Couldn't add mood")
+            
+        }
     
     }
 

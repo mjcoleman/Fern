@@ -65,6 +65,13 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Hf-jK9">
+                                        <frame key="frameInset" minX="31" minY="452" width="321" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8Y-cU-Bsm">
                                         <frame key="frameInset" minX="172" minY="588" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,6 +87,26 @@
                                             <action selector="LocationToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="1i8-jO-vyB"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiC-f1-R7d">
+                                        <frame key="frameInset" minX="8" minY="588" width="50" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="History"/>
+                                        <connections>
+                                            <segue destination="Pjf-bj-9Fm" kind="popoverPresentation" popoverAnchorView="LiC-f1-R7d" id="USy-UV-XJm">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-Hs-kK0">
+                                        <frame key="frameInset" minX="164" minY="136" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="Ho5-KD-UuL" kind="popoverPresentation" identifier="mooddetails" popoverAnchorView="xfa-Hs-kK0" id="Inh-Qc-x0v">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7822376482818556" green="0.76053777918870502" blue="0.81711463730569944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -112,6 +139,7 @@
                         <outlet property="lastMoodLabel" destination="gQH-hZ-bvH" id="rze-4J-hrv"/>
                         <outlet property="locationToggle" destination="M3r-xQ-YJi" id="Riv-3a-UL6"/>
                         <outlet property="moodNameField" destination="uHz-Hg-dGC" id="Lfe-Tq-NdR"/>
+                        <outlet property="moodNoteField" destination="ESv-Hf-jK9" id="m4k-Qe-Z9p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
