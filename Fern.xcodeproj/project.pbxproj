@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2AB5861D484787000633A0 /* MCMoodCellView.xib */; };
+		4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5881D484856000633A0 /* MCMoodCellController.swift */; };
+		4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */; };
+		4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58C1D484A6A000633A0 /* MCMood.swift */; };
+		4C2AB5941D48629B000633A0 /* MCDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5931D48629B000633A0 /* MCDateParser.swift */; };
+		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
+		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
+		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
+		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
+		4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */; };
+		4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF301D46E4E7000A413E /* ViewController.swift */; };
+		4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF321D46E4E7000A413E /* Main.storyboard */; };
+		4CBBCF371D46E4E7000A413E /* Fern.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF351D46E4E7000A413E /* Fern.xcdatamodeld */; };
+		4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF381D46E4E7000A413E /* Assets.xcassets */; };
+		4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */; };
+		4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */; };
+		4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */; };
+		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C2AB5861D484787000633A0 /* MCMoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMoodCellView.xib; sourceTree = "<group>"; };
+		4C2AB5881D484856000633A0 /* MCMoodCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodCellController.swift; sourceTree = "<group>"; };
+		4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCHistoryViewController.swift; sourceTree = "<group>"; };
+		4C2AB58C1D484A6A000633A0 /* MCMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMood.swift; sourceTree = "<group>"; };
+		4C2AB5931D48629B000633A0 /* MCDateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDateParser.swift; sourceTree = "<group>"; };
+		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
+		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
+		4CBBCF2B1D46E4E7000A413E /* Fern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fern.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4CBBCF301D46E4E7000A413E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CBBCF331D46E4E7000A413E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4CBBCF361D46E4E7000A413E /* Fern.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fern.xcdatamodel; sourceTree = "<group>"; };
+		4CBBCF381D46E4E7000A413E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CBBCF3B1D46E4E7000A413E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4CBBCF3D1D46E4E7000A413E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CBBCF461D46E4E7000A413E /* FernTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FernTests.swift; sourceTree = "<group>"; };
+		4CBBCF481D46E4E7000A413E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CBBCF511D46E4E7000A413E /* FernUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FernUITests.swift; sourceTree = "<group>"; };
+		4CBBCF531D46E4E7000A413E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CBBCF601D46E4FA000A413E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodDetailsViewController.swift; sourceTree = "<group>"; };
+		4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSettingsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CBBCF281D46E4E6000A413E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */,
+				4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C2AB5901D486222000633A0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF321D46E4E7000A413E /* Main.storyboard */,
+				4C2AB5861D484787000633A0 /* MCMoodCellView.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		4C2AB5911D486237000633A0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
+				4C2AB5881D484856000633A0 /* MCMoodCellController.swift */,
+				4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */,
+				4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */,
+				4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4C2AB5921D486242000633A0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C2AB58C1D484A6A000633A0 /* MCMood.swift */,
+				4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */,
+				4C2AB5931D48629B000633A0 /* MCDateParser.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4CBBCF221D46E4E6000A413E = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF2D1D46E4E7000A413E /* Fern */,
+				4CBBCF451D46E4E7000A413E /* FernTests */,
+				4CBBCF501D46E4E7000A413E /* FernUITests */,
+				4CBBCF2C1D46E4E7000A413E /* Products */,
+				4CBBCF5F1D46E4F9000A413E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4CBBCF2C1D46E4E7000A413E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF2B1D46E4E7000A413E /* Fern.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CBBCF2D1D46E4E7000A413E /* Fern */ = {
+			isa = PBXGroup;
+			children = (
+				4C2AB5901D486222000633A0 /* UI */,
+				4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */,
+				4C2AB5911D486237000633A0 /* View Controllers */,
+				4C2AB5921D486242000633A0 /* Helpers */,
+				4CBBCF381D46E4E7000A413E /* Assets.xcassets */,
+				4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */,
+				4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */,
+				4CBBCF3D1D46E4E7000A413E /* Info.plist */,
+				4C87EF7C1D48BBF800237D7C /* Empty.xib */,
+				4CBBCF351D46E4E7000A413E /* Fern.xcdatamodeld */,
+			);
+			path = Fern;
+			sourceTree = "<group>";
+		};
+		4CBBCF451D46E4E7000A413E /* FernTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF461D46E4E7000A413E /* FernTests.swift */,
+				4CBBCF481D46E4E7000A413E /* Info.plist */,
+			);
+			path = FernTests;
+			sourceTree = "<group>";
+		};
+		4CBBCF501D46E4E7000A413E /* FernUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF511D46E4E7000A413E /* FernUITests.swift */,
+				4CBBCF531D46E4E7000A413E /* Info.plist */,
+			);
+			path = FernUITests;
+			sourceTree = "<group>";
+		};
+		4CBBCF5F1D46E4F9000A413E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C3609111D471CC8007A9AB1 /* MapKit.framework */,
+				4CBBCF601D46E4FA000A413E /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CBBCF2A1D46E4E6000A413E /* Fern */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CBBCF561D46E4E7000A413E /* Build configuration list for PBXNativeTarget "Fern" */;
+			buildPhases = (
+				4CBBCF271D46E4E6000A413E /* Sources */,
+				4CBBCF281D46E4E6000A413E /* Frameworks */,
+				4CBBCF291D46E4E6000A413E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fern;
+			productName = Fern;
+			productReference = 4CBBCF2B1D46E4E7000A413E /* Fern.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CBBCF231D46E4E6000A413E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Michael Coleman";
+				TargetAttributes = {
+					4CBBCF2A1D46E4E6000A413E = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MSLBTXC447;
+						DevelopmentTeamName = "Michael Colmena (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4CBBCF261D46E4E6000A413E /* Build configuration list for PBXProject "Fern" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CBBCF221D46E4E6000A413E;
+			productRefGroup = 4CBBCF2C1D46E4E7000A413E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CBBCF2A1D46E4E6000A413E /* Fern */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CBBCF291D46E4E6000A413E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */,
+				4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */,
+				4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */,
+				4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */,
+				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
+				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CBBCF271D46E4E6000A413E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */,
+				4C2AB5941D48629B000633A0 /* MCDateParser.swift in Sources */,
+				4CBBCF371D46E4E7000A413E /* Fern.xcdatamodeld in Sources */,
+				4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */,
+				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
+				4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */,
+				4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */,
+				4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */,
+				4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */,
+				4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CBBCF321D46E4E7000A413E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CBBCF331D46E4E7000A413E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CBBCF3B1D46E4E7000A413E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CBBCF541D46E4E7000A413E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4CBBCF551D46E4E7000A413E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CBBCF571D46E4E7000A413E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Fern/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4CBBCF581D46E4E7000A413E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Fern/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mctwo.FernMood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CBBCF261D46E4E6000A413E /* Build configuration list for PBXProject "Fern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CBBCF541D46E4E7000A413E /* Debug */,
+				4CBBCF551D46E4E7000A413E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CBBCF561D46E4E7000A413E /* Build configuration list for PBXNativeTarget "Fern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CBBCF571D46E4E7000A413E /* Debug */,
+				4CBBCF581D46E4E7000A413E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4CBBCF351D46E4E7000A413E /* Fern.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4CBBCF361D46E4E7000A413E /* Fern.xcdatamodel */,
+			);
+			currentVersion = 4CBBCF361D46E4E7000A413E /* Fern.xcdatamodel */;
+			path = Fern.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4CBBCF231D46E4E6000A413E /* Project object */;
+}
