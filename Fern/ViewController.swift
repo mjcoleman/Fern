@@ -16,9 +16,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var locationOn : Bool = true
     var locationManager = CLLocationManager()
     var lastMood : MCMood?
-    let moodManager : MCMoodStoreManager = MCMoodStoreManager()
-    
-    
+    let moodManager : MCMoodStoreManager = MCMoodStoreManager.sharedInstance
+    let watchManager : MCWatchSessionManager = MCWatchSessionManager.sharedInstance
+    let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
+
+        
     @IBOutlet var interfaceView : UIView!
     @IBOutlet weak var lastMoodLabel: UILabel!
     @IBOutlet weak var locationToggle: UISwitch!
@@ -29,7 +31,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
+        
         interfaceView.backgroundColor = UIColor.clear()
         self.view.addSubview(interfaceView)
         self.view.backgroundColor = UIColor.init(patternImage: UIImage.init(imageLiteralResourceName: "bg"))
@@ -49,6 +52,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         self.setupInterface()
         
         
+        //Notification center stuff
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setupInterface), name: "updateUI" as NSNotification.Name, object: nil)
+        
         
     }
 
@@ -64,6 +70,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             moodDetailsVC.moodData = lastMood
         }
     }
+    
     
     func setupInterface(){
         

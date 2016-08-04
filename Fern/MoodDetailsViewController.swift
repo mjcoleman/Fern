@@ -20,17 +20,11 @@ class MoodDetailsViewController: UIViewController {
     @IBOutlet weak var moodMap: MKMapView!
     
    //Object will be passed from ViewController
-    
     var moodData : MCMood?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-       
-       
         
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: (moodData?.moodLocation)!, span: span)

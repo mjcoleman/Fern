@@ -12,6 +12,7 @@
 		4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */; };
 		4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58C1D484A6A000633A0 /* MCMood.swift */; };
 		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
+		4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */; };
 		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
 		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
 		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
@@ -36,6 +37,7 @@
 		4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */; };
 		4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */; };
 		4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */; };
+		4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */; };
 		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,7 @@
 		4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCHistoryViewController.swift; sourceTree = "<group>"; };
 		4C2AB58C1D484A6A000633A0 /* MCMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMood.swift; sourceTree = "<group>"; };
 		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWatchSessionManager.swift; sourceTree = "<group>"; };
 		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
 		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		4CBBCF601D46E4FA000A413E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodDetailsViewController.swift; sourceTree = "<group>"; };
 		4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSettingsViewController.swift; sourceTree = "<group>"; };
+		4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +169,10 @@
 			isa = PBXGroup;
 			children = (
 				4C2AB58C1D484A6A000633A0 /* MCMood.swift */,
+				4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */,
 				4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */,
 				4C9A541C1D4F43100067F558 /* MCDateExtension.swift */,
+				4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -431,8 +437,10 @@
 				4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */,
 				4C9A541D1D4F43100067F558 /* MCDateExtension.swift in Sources */,
 				4CBBCF371D46E4E7000A413E /* Fern.xcdatamodeld in Sources */,
+				4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */,
 				4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */,
 				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
+				4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */,
 				4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */,
 				4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */,
 				4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */,

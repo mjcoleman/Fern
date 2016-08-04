@@ -9,11 +9,20 @@
 import UIKit
 import CoreData
 
+
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
-
+    
+    //Watch Connectivity
+    var watchsessionmanager : MCWatchSessionManager!
+    var moodmanager : MCMoodStoreManager!
+    
+   
+    
+  
     //3D Touch Shortcuts
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
         

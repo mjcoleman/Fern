@@ -13,7 +13,8 @@ import CoreData
 
 
 class MCMoodStoreManager: NSObject {
-
+    static let sharedInstance = MCMoodStoreManager()
+    
     let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
     var container : NSPersistentContainer?
     
@@ -28,6 +29,7 @@ class MCMoodStoreManager: NSObject {
      If there is none, we'll return an empty mood object.
      */
     func getLastMood() -> MCMood{
+        print("Called get last mood")
         
         var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, date: NSDate.distantPast)
         
@@ -53,6 +55,7 @@ class MCMoodStoreManager: NSObject {
             request.fetchOffset = (moodCount - 1)
             let result = try container?.viewContext.fetch(request)
             lastMood = MCMood(object: result?.first! as! NSManagedObject)
+            MCWatchSessionManager.sharedInstance.sendMoodToWatch(mood: lastMood)
             
             
             
@@ -86,7 +89,7 @@ class MCMoodStoreManager: NSObject {
         newMood.setValue(currentDate, forKey: "mooddate")
         do{
             try container?.viewContext.save()
-            
+            MCWatchSessionManager.sharedInstance.sendMoodToWatch(mood: mood)
         }catch{
             //Error Saving Mood.
             print("Error when saving mood")

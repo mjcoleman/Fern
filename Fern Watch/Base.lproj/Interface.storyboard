@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11173.2" systemVersion="16A254g" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11173.2" systemVersion="16A270f" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11071"/>
@@ -23,13 +23,30 @@
                         </label>
                         <button width="136" alignment="left" title="How Are You Feeling Now?" id="jvN-W2-LeC">
                             <connections>
-                                <segue destination="xCp-Np-Je7" kind="modal" id="mKV-R4-Qx1"/>
+                                <action selector="newMood" destination="AgC-eL-Hgc" id="CWP-hB-M6I"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="lastMoodLabel" destination="sDg-ml-KED" id="u10-84-zKx"/>
+                        <outlet property="lastMoodTimeLabel" destination="ueB-tr-5mt" id="Jn0-jt-BzV"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="75" y="284"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="pdz-eT-QgX">
+            <objects>
+                <controller id="dIx-Vb-8cV">
+                    <items>
+                        <label alignment="left" text="Label" id="nNe-zT-hiP"/>
+                        <button width="1" alignment="left" title="Add Notes" id="QWM-Cx-7OV"/>
+                        <button width="1" alignment="left" title="Button" id="Lqw-Sv-s93"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="298" y="285"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -46,13 +63,6 @@
                 </notificationController>
             </objects>
             <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="gJZ-Zu-H3A">
-            <objects>
-                <controller id="xCp-Np-Je7"/>
-            </objects>
-            <point key="canvasLocation" x="476" y="345"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">

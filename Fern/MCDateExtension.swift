@@ -11,6 +11,7 @@ import Foundation
 
 extension NSDate{
     func timeDifferenceToString(date : NSDate) -> NSString{
+        //Temporary, for demo purposes only. To be rewritten.
         
         let interval : TimeInterval = timeIntervalSince(date as Date)
         let intervalInSeconds : Double = interval as Double
