@@ -11,6 +11,7 @@ import UIKit
 class MCLocationManager: NSObject {
     static let sharedInstance  = MCLocationManager()
     var locationEnabled = false;
+    //test
     
     override init(){
         super.init()
