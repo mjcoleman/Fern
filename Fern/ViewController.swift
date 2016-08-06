@@ -33,10 +33,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         
         
-        interfaceView.backgroundColor = UIColor.clear()
-        self.view.addSubview(interfaceView)
-        self.view.backgroundColor = UIColor.init(patternImage: UIImage.init(imageLiteralResourceName: "bg"))
-        
+//        interfaceView.backgroundColor = UIColor.clear()
+//        self.view.addSubview(interfaceView)
+//        self.view.backgroundColor = UIColor.init(patternImage: UIImage.init(imageLiteralResourceName: "bg"))
+//        
         
         
         locationManager.delegate = self;
