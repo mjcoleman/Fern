@@ -22,11 +22,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
 
         
     @IBOutlet var interfaceView : UIView!
-    @IBOutlet weak var lastMoodLabel: UILabel!
+    @IBOutlet weak var lastMoodLabel: UIButton!
     @IBOutlet weak var locationToggle: UISwitch!
     @IBOutlet weak var moodNoteField: UITextView!
     @IBOutlet weak var moodNameField: UITextField!
     @IBOutlet var moodTimeDiffLabel : UILabel!
+    @IBOutlet var fernWelcomeText : UILabel!
+    @IBOutlet var moodEntryView : UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +85,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             //No last mood. HANDLE THIS
             
         }else{
-            lastMoodLabel.text = lastMood?.moodName
+            lastMoodLabel.setTitle(lastMood?.moodName, for: UIControlState.normal)
             moodTimeDiffLabel.text = NSDate().timeDifferenceToString(date: (lastMood?.moodDate)!) as String + " you were feeling"
         }
         
@@ -138,14 +140,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     @IBAction func AddNotes(_ sender: AnyObject){
-        if(moodNoteField.isHidden){
-            moodNoteField.isHidden = false
-        }else{
-            if(moodNoteField.text != ""){
-                //Display an alert that any text entered will be lost.
-            }
-            moodNoteField.isHidden = true
-        }
+        UIView.animate(withDuration: 0.5, animations: {()-> Void in
+           // self.fernWelcomeText.frame = CGRect(x:self.fernWelcomeText.frame.origin.x, y:20, width:self.fernWelcomeText.frame.size.width, height:self.fernWelcomeText.frame.size.height)
+            self.moodEntryView.frame = CGRect(x:self.moodEntryView.frame.origin.x, y:20, width:self.moodEntryView.frame.size.width, height:self.moodEntryView.frame.size.height)
+           // self.fernWelcomeText.frame = CGRect(x:self.fernWelcomeText.frame.origin.x, y:20, width:self.fernWelcomeText.frame.size.width, height:self.fernWelcomeText.frame.size.height)
+            
+        })
+        
     }
-
 }
