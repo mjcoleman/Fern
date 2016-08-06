@@ -13,6 +13,7 @@
 		4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58C1D484A6A000633A0 /* MCMood.swift */; };
 		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
 		4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */; };
+		4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */; };
 		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
 		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
 		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
@@ -38,6 +39,7 @@
 		4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */; };
 		4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */; };
 		4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */; };
+		4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */; };
 		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,7 @@
 		4C2AB58C1D484A6A000633A0 /* MCMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMood.swift; sourceTree = "<group>"; };
 		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWatchSessionManager.swift; sourceTree = "<group>"; };
+		4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTutorialView.xib; sourceTree = "<group>"; };
 		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
 		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodDetailsViewController.swift; sourceTree = "<group>"; };
 		4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSettingsViewController.swift; sourceTree = "<group>"; };
 		4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCLocationManager.swift; sourceTree = "<group>"; };
+		4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAnnotationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +151,9 @@
 		4C2AB5901D486222000633A0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */,
 				4CBBCF321D46E4E7000A413E /* Main.storyboard */,
+				4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */,
 				4C2AB5861D484787000633A0 /* MCMoodCellView.xib */,
 			);
 			name = UI;
@@ -409,7 +415,9 @@
 				4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */,
 				4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */,
 				4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */,
+				4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */,
 				4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */,
+				4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */,
 				4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */,
 				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
 				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,

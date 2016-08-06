@@ -15,10 +15,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Fern_Watch" customModuleProvider="target">
                     <items>
-                        <label width="136" height="52" alignment="left" text="Previously" id="ueB-tr-5mt">
+                        <label width="136" height="40" alignment="left" text="Previously" textAlignment="center" id="ueB-tr-5mt">
                             <fontDescription key="font" name="SignPainter-HouseScript" family="SignPainter" pointSize="33"/>
                         </label>
-                        <label width="136" height="52" alignment="left" text="Happy" id="sDg-ml-KED">
+                        <label width="136" height="44" alignment="left" text="Mood" textAlignment="center" minimumScaleFactor="0.5" id="sDg-ml-KED">
                             <fontDescription key="font" type="system" pointSize="33"/>
                         </label>
                         <button width="136" alignment="left" title="How Are You Feeling Now?" id="jvN-W2-LeC">
@@ -33,16 +33,16 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="75" y="284"/>
+            <point key="canvasLocation" x="75" y="282"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="pdz-eT-QgX">
             <objects>
                 <controller id="dIx-Vb-8cV">
                     <items>
-                        <label alignment="left" text="Label" id="nNe-zT-hiP"/>
+                        <label width="124" alignment="left" text="Label" id="nNe-zT-hiP"/>
                         <button width="1" alignment="left" title="Add Notes" id="QWM-Cx-7OV"/>
-                        <button width="1" alignment="left" title="Button" id="Lqw-Sv-s93"/>
+                        <button width="1" alignment="left" title="Ok" id="Lqw-Sv-s93"/>
                     </items>
                 </controller>
             </objects>
@@ -53,7 +53,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="How Are You Feeling?" id="IdU-wH-bcW"/>
+                        <label height="48" alignment="left" text="How Are You Feeling?" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>

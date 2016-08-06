@@ -24,6 +24,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //Get all the moods
         moodObjects = manager.getMoodsFromStore()
+       
         //Reverse the array for looking at moods in reverse chronological order.
         moodObjects?.reverse()
         
