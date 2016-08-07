@@ -10,6 +10,7 @@
     <customFonts key="customFonts">
         <array key="SFUIText.ttf">
             <string>.SFUIText</string>
+            <string>.SFUIText_Semibold</string>
         </array>
         <array key="SignPainter.ttc">
             <string>SignPainter-HouseScriptSemibold</string>
@@ -28,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="082" translatesAutoresizingMaskIntoConstraints="NO" id="zAv-rq-hTO"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unfurling-fern-6" translatesAutoresizingMaskIntoConstraints="NO" id="zAv-rq-hTO"/>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leS-NX-tEk">
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uHs-iz-0QP">
                                     <frame key="frameInset"/>
@@ -138,7 +139,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRo-Ny-Yge">
-                                                                    <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="18"/>
+                                                                    <fontDescription key="fontDescription" name=".SFUIText_Semibold" family=".SF UI Text" pointSize="28"/>
                                                                     <state key="normal" title="+"/>
                                                                     <connections>
                                                                         <action selector="AddMood:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C0F-NP-Zk9"/>
@@ -148,7 +149,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="cRo-Ny-Yge" firstAttribute="centerX" secondItem="cc9-HQ-qRs" secondAttribute="centerX" id="7q3-HX-5Oo"/>
                                                                 <constraint firstItem="cRo-Ny-Yge" firstAttribute="leading" secondItem="cc9-HQ-qRs" secondAttribute="leading" constant="13" id="KKk-pD-1X9"/>
-                                                                <constraint firstItem="cRo-Ny-Yge" firstAttribute="centerY" secondItem="cc9-HQ-qRs" secondAttribute="centerY" id="qb2-o2-uAJ"/>
+                                                                <constraint firstItem="cRo-Ny-Yge" firstAttribute="centerY" secondItem="cc9-HQ-qRs" secondAttribute="centerY" constant="1" id="qb2-o2-uAJ"/>
                                                             </constraints>
                                                         </view>
                                                         <constraints>
@@ -568,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ex-Sz-2bF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421.5999999999999" y="-487.10644677661173"/>
+            <point key="canvasLocation" x="1403" y="-488"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="TOl-tH-elO">
@@ -642,13 +643,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAr-gX-szx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="976.46176911544239"/>
+            <point key="canvasLocation" x="1587" y="963"/>
         </scene>
     </scenes>
     <resources>
-        <image name="082" width="2288" height="1712"/>
         <image name="addnote" width="128" height="128"/>
         <image name="locationenabled" width="256" height="256"/>
+        <image name="unfurling-fern-6" width="640" height="425"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="utE-YL-kgE"/>

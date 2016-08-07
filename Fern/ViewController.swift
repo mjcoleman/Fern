@@ -21,7 +21,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
 
         
-    @IBOutlet var interfaceView : UIView!
     @IBOutlet weak var lastMoodLabel: UIButton!
     @IBOutlet weak var locationToggle: UISwitch!
     @IBOutlet weak var moodNoteField: UITextView!
@@ -32,13 +31,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-//        interfaceView.backgroundColor = UIColor.clear()
-//        self.view.addSubview(interfaceView)
-//        self.view.backgroundColor = UIColor.init(patternImage: UIImage.init(imageLiteralResourceName: "bg"))
-//        
         
         
         locationManager.delegate = self;
