@@ -37,7 +37,7 @@ class MoodDetailsViewController: UIViewController {
         
         moodName.text = moodData?.moodName
         moodNotes.text = moodData?.moodNotes
-       // moodDate.text = "\((moodData?.moodDate)? as NSDate)"
+        moodDate.text = moodData?.moodDate?.description
         
         
         

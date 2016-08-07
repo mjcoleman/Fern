@@ -6,38 +6,43 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SFUIText.ttf">
-            <string>.SFUIText</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moodcell" rowHeight="95" id="tBq-Iz-Ucb" customClass="MCMoodCellController" customModule="Fern" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="354" height="83"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moodcell" rowHeight="124" id="tBq-Iz-Ucb" customClass="MCMoodCellController" customModule="Fern" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="112"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tBq-Iz-Ucb" id="UCh-ye-ZMO">
-                <frame key="frameInset" width="354" height="82"/>
+                <frame key="frameInset" width="354" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-kn-yc0">
+                        <frame key="frameInset" minY="-3" width="354" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="ABx-Ee-C8U">
+                            <frame key="frameInset"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-d5-68p">
+                                    <frame key="frameInset" minX="8" minY="29" width="338" height="71"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </view>
+                        <blurEffect style="dark"/>
+                    </visualEffectView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksx-JE-95J">
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-d5-68p">
-                        <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="27"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="TAC-d5-68p" firstAttribute="bottom" secondItem="UCh-ye-ZMO" secondAttribute="bottomMargin" id="17m-Hm-O3r"/>
-                    <constraint firstItem="TAC-d5-68p" firstAttribute="trailing" secondItem="UCh-ye-ZMO" secondAttribute="trailingMargin" id="5fU-Wi-7g9"/>
                     <constraint firstItem="Ksx-JE-95J" firstAttribute="top" secondItem="UCh-ye-ZMO" secondAttribute="topMargin" id="L27-2l-O2e"/>
                     <constraint firstItem="Ksx-JE-95J" firstAttribute="trailing" secondItem="UCh-ye-ZMO" secondAttribute="trailingMargin" id="P4Y-RA-Oyv"/>
-                    <constraint firstItem="TAC-d5-68p" firstAttribute="leading" secondItem="UCh-ye-ZMO" secondAttribute="leadingMargin" id="VVa-cu-dag"/>
                     <constraint firstItem="Ksx-JE-95J" firstAttribute="leading" secondItem="UCh-ye-ZMO" secondAttribute="leadingMargin" id="oEe-YK-LFb"/>
                 </constraints>
             </tableViewCellContentView>
@@ -45,7 +50,7 @@
                 <outlet property="moodDate" destination="Ksx-JE-95J" id="htW-vY-SXZ"/>
                 <outlet property="moodName" destination="TAC-d5-68p" id="SbF-eB-Qu4"/>
             </connections>
-            <point key="canvasLocation" x="-170" y="-58.5"/>
+            <point key="canvasLocation" x="-170" y="-44"/>
         </tableViewCell>
     </objects>
 </document>

@@ -82,7 +82,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 86.0
+        return 112
     }
     
     @IBAction func close(_ sender: AnyObject) {
