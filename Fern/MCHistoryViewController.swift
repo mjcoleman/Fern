@@ -73,9 +73,12 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MCMoodCellController = self.historyTable.dequeueReusableCell(withIdentifier: "moodcell") as! MCMoodCellController
-        cell.moodName.text = moodObjects?[indexPath.row].moodName
+        let currentMood : MCMood = (moodObjects?[indexPath.row])!
         
-        cell.moodDate.text = "2016"
+        cell.moodName.text = currentMood.moodName
+        
+        
+        cell.moodDate.text = currentMood.moodDate?.dateToString(hourmin: true, dayofweek: false, daymonth: true, year: true)
         
         
         return cell

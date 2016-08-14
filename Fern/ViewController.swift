@@ -18,7 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var lastMood : MCMood?
     let moodManager : MCMoodStoreManager = MCMoodStoreManager.sharedInstance
     let watchManager : MCWatchSessionManager = MCWatchSessionManager.sharedInstance
-    let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
+    let appDel : AppDelegate = UIApplication.shared.delegate! as! AppDelegate
 
         
     @IBOutlet weak var lastMoodLabel: UIButton!
@@ -60,7 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "mooddetails" {
-            let moodDetailsVC = segue.destinationViewController as! MoodDetailsViewController
+            let moodDetailsVC = segue.destination as! MoodDetailsViewController
             moodDetailsVC.moodData = lastMood
         }
     }

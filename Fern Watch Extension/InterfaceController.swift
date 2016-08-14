@@ -61,7 +61,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         lastMoodLabel.setText(message["moodname"]! as? String)
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
 

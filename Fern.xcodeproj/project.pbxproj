@@ -14,6 +14,8 @@
 		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
 		4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */; };
 		4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */; };
+		4C7336571D6015ED009480D0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7336561D6015ED009480D0 /* LocalAuthentication.framework */; };
+		4C7336591D60170B009480D0 /* MCAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */; };
 		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
 		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
 		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
@@ -93,6 +95,8 @@
 		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWatchSessionManager.swift; sourceTree = "<group>"; };
 		4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTutorialView.xib; sourceTree = "<group>"; };
+		4C7336561D6015ED009480D0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAuthenticationViewController.swift; sourceTree = "<group>"; };
 		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
 		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7336571D6015ED009480D0 /* LocalAuthentication.framework in Frameworks */,
 				4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */,
 				4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */,
 			);
@@ -162,6 +167,7 @@
 		4C2AB5911D486237000633A0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */,
 				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
 				4C2AB5881D484856000633A0 /* MCMoodCellController.swift */,
 				4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */,
@@ -276,6 +282,7 @@
 		4CBBCF5F1D46E4F9000A413E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C7336561D6015ED009480D0 /* LocalAuthentication.framework */,
 				4C3609111D471CC8007A9AB1 /* MapKit.framework */,
 				4CBBCF601D46E4FA000A413E /* CoreLocation.framework */,
 			);
@@ -454,6 +461,7 @@
 				4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */,
 				4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */,
 				4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */,
+				4C7336591D60170B009480D0 /* MCAuthenticationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

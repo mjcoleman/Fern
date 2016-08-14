@@ -15,7 +15,7 @@ import CoreData
 class MCMoodStoreManager: NSObject {
     static let sharedInstance = MCMoodStoreManager()
     
-    let appDel : AppDelegate = UIApplication.shared().delegate! as! AppDelegate
+    let appDel : AppDelegate = UIApplication.shared.delegate! as! AppDelegate
     var container : NSPersistentContainer?
     
     

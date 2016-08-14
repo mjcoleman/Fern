@@ -45,5 +45,35 @@ extension NSDate{
         return "An hour ago"
     }
     
+    
+    
+    /*
+     This function builds a String from self (NSDate), with options for showing Day of Hour, Min/Week/Day/Month/Year
+     */
+    func dateToString(hourmin : Bool, dayofweek: Bool, daymonth: Bool, year: Bool) -> String{
+        let dateFormatter = DateFormatter()
+        var formatString = ""
+        
+        if(hourmin){
+            formatString += "HH:mm"
+        }
+        if(dayofweek){
+            formatString += " EEEE"
+        }
+        
+        if(daymonth){
+            formatString += " MMM d"
+        }
+        if(year){
+            formatString += " yyyy"
+        }
+      
+        dateFormatter.dateFormat = formatString
+        
+        return dateFormatter.string(from: self as Date)
+        
+        
+    }
+    
 }
 

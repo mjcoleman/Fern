@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11173.2" systemVersion="16A270f" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11191" systemVersion="16A286a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11071"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="SignPainter.ttc">
@@ -21,7 +21,7 @@
                         <label width="136" height="44" alignment="left" text="Mood" textAlignment="center" minimumScaleFactor="0.5" id="sDg-ml-KED">
                             <fontDescription key="font" type="system" pointSize="33"/>
                         </label>
-                        <button width="136" alignment="left" title="How Are You Feeling Now?" id="jvN-W2-LeC">
+                        <button width="136" alignment="left" title="How Are You Feeling?" id="jvN-W2-LeC">
                             <connections>
                                 <action selector="newMood" destination="AgC-eL-Hgc" id="CWP-hB-M6I"/>
                             </connections>

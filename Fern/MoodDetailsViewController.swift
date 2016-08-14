@@ -36,8 +36,10 @@ class MoodDetailsViewController: UIViewController {
         
         
         moodName.text = moodData?.moodName
-        moodNotes.text = moodData?.moodNotes
-        moodDate.text = moodData?.moodDate?.description
+       // moodNotes.text = moodData?.moodNotes
+        moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
+        
+        
         
         
         
