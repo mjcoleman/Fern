@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var moodObjects : [MCMood]?
     let manager : MCMoodStoreManager = MCMoodStoreManager()
@@ -44,6 +44,8 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         let headerNib = UINib(nibName: "MCTableSectionHeader", bundle: nil)
         historyTable.register(headerNib, forHeaderFooterViewReuseIdentifier: "moodheader")
         
+        let calCellNib = UINib(nibName: "MCCalCellCollectionViewCell", bundle: nil)
+        calView.register(calCellNib, forCellWithReuseIdentifier: "calcell")
         
     }
 
@@ -54,10 +56,12 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     @IBAction func SwitchView(_ sender: AnyObject) {
+        print("Called Switch View")
         switch viewSwitch.selectedSegmentIndex{
         case 0:
             //Recent
           //  mapView.isHidden = true
+            calView.isHidden = true;
             historyTable.isHidden = false
             break
         case 1:
@@ -147,5 +151,60 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func close(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
+
+    
+    
+    // MARK :- CollectionView Functions
+    // MARK: UICollectionViewDataSource
+    
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return 100
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : MCCalCellCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calcell", for: indexPath) as! MCCalCellCollectionViewCell
+        
+        // Configure the cell
+        
+        return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+  
+     // Uncomment this method to specify if the specified item should be highlighted during tracking
+      func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+    
+    
+    
+     // Uncomment this method to specify if the specified item should be selected
+      func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+    
+    
+    
+     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+      func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+     return false
+     }
+     
+      func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?) -> Bool {
+     return false
+     }
+     
+      func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: AnyObject?) {
+     
+     }
+    
 
 }
