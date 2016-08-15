@@ -24,6 +24,8 @@ class MCWatchSessionManager: NSObject, WCSessionDelegate  {
         }
     }
     
+    
+    
     func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         //Construct a MCMood with message received from watch.
         var newmood : MCMood = MCMood.init(name:(message["newmood"]! as? String)!, notes: "", lat: 0, lon: 0, date: NSDate())
@@ -32,11 +34,14 @@ class MCWatchSessionManager: NSObject, WCSessionDelegate  {
             //Didn't save mood.
         }
         NotificationCenter.default.post(name: "updateUI" as NSNotification.Name, object: self)
-        
-        
-        
+     
     }
     
+    
+    /*
+     Recieved a mood back from watchOS, send it to the core data store.
+     TODO: log location in here.
+    */
     func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
         //We got a mood back.
         //Construct a MCMood with message received from watch.

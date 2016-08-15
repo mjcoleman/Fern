@@ -40,6 +40,7 @@
 		4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */; };
 		4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */; };
 		4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */; };
+		4CDACC181D603C720062EB10 /* MCHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDACC171D603C720062EB10 /* MCHistory.xib */; };
 		4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */; };
 		4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */; };
 		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
@@ -128,6 +129,7 @@
 		4CBBCF601D46E4FA000A413E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodDetailsViewController.swift; sourceTree = "<group>"; };
 		4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSettingsViewController.swift; sourceTree = "<group>"; };
+		4CDACC171D603C720062EB10 /* MCHistory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCHistory.xib; sourceTree = "<group>"; };
 		4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCLocationManager.swift; sourceTree = "<group>"; };
 		4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAnnotationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 			children = (
 				4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */,
 				4CBBCF321D46E4E7000A413E /* Main.storyboard */,
+				4CDACC171D603C720062EB10 /* MCHistory.xib */,
 				4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */,
 				4C2AB5861D484787000633A0 /* MCMoodCellView.xib */,
 			);
@@ -423,6 +426,7 @@
 				4CBBCF3C1D46E4E7000A413E /* LaunchScreen.storyboard in Resources */,
 				4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */,
 				4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */,
+				4CDACC181D603C720062EB10 /* MCHistory.xib in Resources */,
 				4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */,
 				4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */,
 				4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */,

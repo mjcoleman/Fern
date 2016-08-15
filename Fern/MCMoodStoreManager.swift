@@ -68,8 +68,9 @@ class MCMoodStoreManager: NSObject {
         
     }
     
-    
-    
+    /*
+    Adds an MCMood to the core data store, returns true if stored successfully, false otherwise.
+     */
     func addMoodToStore(mood : MCMood) -> Bool{
         
         let newMood = NSEntityDescription.insertNewObject(forEntityName: "MoodObject", into: (container?.viewContext)!)
@@ -120,6 +121,15 @@ class MCMoodStoreManager: NSObject {
         }
         return allMoods
 
+    }
+    
+    
+    /*
+     Will return all moods from the core data store sorted via a key.
+     */
+    func sortMoodsFromStore(key : String)->[MCMood]{
+        return []
+        
     }
 
 

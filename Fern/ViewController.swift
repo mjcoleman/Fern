@@ -28,7 +28,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet var moodTimeDiffLabel : UILabel!
     @IBOutlet var fernWelcomeText : UILabel!
     @IBOutlet var moodEntryView : UIVisualEffectView!
+   
     
+    //Overriden Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +68,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     
+    
+    
+    //Functions
     func setupInterface(){
         
         self.moodNameField.text = ""
@@ -107,6 +112,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         self.view.endEditing(true);
         return false;
     }
+    
+    
+    func firstRunSetup(){
+        
+    }
+    
+   // pragma mark IBActions
 
     @IBAction func LocationToggle(_ sender: AnyObject) {
         if locationOn{
@@ -118,7 +130,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
 
     @IBAction func AddMood(_ sender: AnyObject) {
-        var currentLocation : CLLocation = locationManager.location!
+        let currentLocation : CLLocation = locationManager.location!
         
         let newMood : MCMood = MCMood(name: moodNameField.text!, notes: moodNoteField.text, lat:currentLocation.coordinate.latitude , lon: currentLocation.coordinate.longitude, date: NSDate())
         let success : Bool = moodManager.addMoodToStore(mood: newMood)
@@ -132,12 +144,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     @IBAction func AddNotes(_ sender: AnyObject){
-        UIView.animate(withDuration: 0.5, animations: {()-> Void in
-           // self.fernWelcomeText.frame = CGRect(x:self.fernWelcomeText.frame.origin.x, y:20, width:self.fernWelcomeText.frame.size.width, height:self.fernWelcomeText.frame.size.height)
-            self.moodEntryView.frame = CGRect(x:self.moodEntryView.frame.origin.x, y:20, width:self.moodEntryView.frame.size.width, height:self.moodEntryView.frame.size.height)
-           // self.fernWelcomeText.frame = CGRect(x:self.fernWelcomeText.frame.origin.x, y:20, width:self.fernWelcomeText.frame.size.width, height:self.fernWelcomeText.frame.size.height)
-            
-        })
         
     }
 }
