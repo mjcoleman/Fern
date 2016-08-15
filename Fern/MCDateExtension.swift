@@ -62,7 +62,7 @@ extension NSDate{
         }
         
         if(daymonth){
-            formatString += " MMM d"
+            formatString += " MMMM d"
         }
         if(year){
             formatString += " yyyy"
@@ -74,6 +74,20 @@ extension NSDate{
         
     }
     
+    
+    func countOfThisDateInDates(dates : [NSDate])->Int{
+        let dateString : String = self.dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true);
+        var count : Int = 0;
+        for i in dates{
+            let iDate : String = i.dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true)
+            if dateString == iDate{
+                count += 1
+            }
+        }
+        return count
+    }
+    
+
     
     
 }

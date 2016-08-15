@@ -14,10 +14,12 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
 
     var moodObjects : [MCMood]?
     let manager : MCMoodStoreManager = MCMoodStoreManager()
+    var uniqueDays : [String] = []
     
     @IBOutlet var historyTable: UITableView!
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var viewSwitch : UISegmentedControl!
+    @IBOutlet var moodCount : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +30,17 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         //Reverse the array for looking at moods in reverse chronological order.
         moodObjects?.reverse()
         
+        historyTable.backgroundColor = UIColor.clear
+       
+        moodCount.text = moodObjects?.count.description
         
         let cellNib = UINib(nibName: "MCMoodCellView", bundle: nil)
         historyTable.register(cellNib, forCellReuseIdentifier: "moodcell")
-        // Do any additional setup after loading the view.
+        
+        let headerNib = UINib(nibName: "MCTableSectionHeader", bundle: nil)
+        historyTable.register(headerNib, forHeaderFooterViewReuseIdentifier: "moodheader")
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,12 +65,26 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //Find the unique days.
+        var allDays = [String]()
+        for i in moodObjects!{
+            allDays.append(i.moodDate!.dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true))
+        }
+        
+        uniqueDays = Array(Set(allDays))
+        return uniqueDays.count
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if moodObjects?.count > 0 {
             return (moodObjects?.count)!
         }
-        return 0;
+        return 0
     }
+    
+ 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as! MoodDetailsViewController
@@ -71,14 +94,25 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = self.historyTable.dequeueReusableHeaderFooterView(withIdentifier: "moodheader") as! MCTableSectionHeaderViewController
+        if(uniqueDays[section] == NSDate().dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true)){
+            header.sectionLabel.text = "TODAY"
+        }else{
+            header.sectionLabel.text = uniqueDays[section].capitalized
+        }
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MCMoodCellController = self.historyTable.dequeueReusableCell(withIdentifier: "moodcell") as! MCMoodCellController
         let currentMood : MCMood = (moodObjects?[indexPath.row])!
         
+        //if(currentMood.moodDate?.dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true) == indexPath.sec)
         cell.moodName.text = currentMood.moodName
         
         
-        cell.moodDate.text = currentMood.moodDate?.dateToString(hourmin: true, dayofweek: false, daymonth: true, year: true)
+        cell.moodDate.text = currentMood.moodDate?.dateToString(hourmin: true, dayofweek: false, daymonth: false, year: false)
         
         
         return cell

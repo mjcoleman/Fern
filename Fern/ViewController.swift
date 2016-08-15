@@ -36,8 +36,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         
         locationManager.delegate = self;
-        moodNameField.delegate = self;
-        moodNoteField.delegate = self;
+        //moodNameField.delegate = self;
+        //moodNoteField.delegate = self;
         
         //Move to "first run" function.
         if CLLocationManager.authorizationStatus() == .notDetermined{
@@ -73,8 +73,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     //Functions
     func setupInterface(){
         
-        self.moodNameField.text = ""
-        self.moodNoteField.text = ""
+       // self.moodNameField.text = ""
+       // self.moodNoteField.text = ""
         
         //Get last Mood from MoodManager
         lastMood = moodManager.getLastMood()
