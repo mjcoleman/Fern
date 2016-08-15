@@ -42,6 +42,8 @@
 		4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */; };
 		4CD849B31D6196340004ECFA /* MCTableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD849B21D6196340004ECFA /* MCTableSectionHeader.xib */; };
 		4CD849B51D6196B90004ECFA /* MCTableSectionHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD849B41D6196B90004ECFA /* MCTableSectionHeaderViewController.swift */; };
+		4CD849B71D61B2D90004ECFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD849B61D61B2D90004ECFA /* Constants.swift */; };
+		4CD849BA1D61B6390004ECFA /* MCCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD849B81D61B6390004ECFA /* MCCalendarViewController.swift */; };
 		4CDACC181D603C720062EB10 /* MCHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDACC171D603C720062EB10 /* MCHistory.xib */; };
 		4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */; };
 		4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */; };
@@ -133,6 +135,8 @@
 		4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSettingsViewController.swift; sourceTree = "<group>"; };
 		4CD849B21D6196340004ECFA /* MCTableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTableSectionHeader.xib; sourceTree = "<group>"; };
 		4CD849B41D6196B90004ECFA /* MCTableSectionHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTableSectionHeaderViewController.swift; sourceTree = "<group>"; };
+		4CD849B61D61B2D90004ECFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4CD849B81D61B6390004ECFA /* MCCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCCalendarViewController.swift; sourceTree = "<group>"; };
 		4CDACC171D603C720062EB10 /* MCHistory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCHistory.xib; sourceTree = "<group>"; };
 		4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCLocationManager.swift; sourceTree = "<group>"; };
 		4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAnnotationView.xib; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		4C2AB5911D486237000633A0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CD849B81D61B6390004ECFA /* MCCalendarViewController.swift */,
 				4CD849B41D6196B90004ECFA /* MCTableSectionHeaderViewController.swift */,
 				4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */,
 				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
@@ -192,6 +197,7 @@
 				4C2AB58C1D484A6A000633A0 /* MCMood.swift */,
 				4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */,
 				4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */,
+				4CD849B61D61B2D90004ECFA /* Constants.swift */,
 				4C9A541C1D4F43100067F558 /* MCDateExtension.swift */,
 				4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */,
 			);
@@ -462,9 +468,11 @@
 			files = (
 				4CC41B281D48A18900FD6B99 /* MCSettingsViewController.swift in Sources */,
 				4C9A541D1D4F43100067F558 /* MCDateExtension.swift in Sources */,
+				4CD849BA1D61B6390004ECFA /* MCCalendarViewController.swift in Sources */,
 				4CBBCF371D46E4E7000A413E /* Fern.xcdatamodeld in Sources */,
 				4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */,
 				4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */,
+				4CD849B71D61B2D90004ECFA /* Constants.swift in Sources */,
 				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
 				4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */,
 				4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */,

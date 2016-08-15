@@ -16,16 +16,20 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     let manager : MCMoodStoreManager = MCMoodStoreManager()
     var uniqueDays : [String] = []
     
+    
+    
     @IBOutlet var historyTable: UITableView!
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var viewSwitch : UISegmentedControl!
     @IBOutlet var moodCount : UILabel!
     
+    @IBOutlet var calView : UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Get all the moods
-        moodObjects = manager.getMoodsFromStore()
+        moodObjects = manager.getMoodsFromStore(number: Constants.ALL_REQUESTS)
        
         //Reverse the array for looking at moods in reverse chronological order.
         moodObjects?.reverse()
@@ -52,12 +56,19 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func SwitchView(_ sender: AnyObject) {
         switch viewSwitch.selectedSegmentIndex{
         case 0:
-            mapView.isHidden = true
+            //Recent
+          //  mapView.isHidden = true
             historyTable.isHidden = false
             break
         case 1:
-            mapView.isHidden = false
-            historyTable.isHidden = true
+            //Locations
+           // mapView.isHidden = false
+            //historyTable.isHidden = true
+            break
+        case 2:
+            //Calendar
+            historyTable.isHidden = true;
+            calView.isHidden = false;
             break
         default:
             break
@@ -107,6 +118,17 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MCMoodCellController = self.historyTable.dequeueReusableCell(withIdentifier: "moodcell") as! MCMoodCellController
         let currentMood : MCMood = (moodObjects?[indexPath.row])!
+        
+        if(indexPath.row == 0){
+            cell.firstInSection = true
+        }
+        
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
+        if(indexPath.row == totalRows-1){
+            cell.lastInSection = true
+        }
+        
+        
         
         //if(currentMood.moodDate?.dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true) == indexPath.sec)
         cell.moodName.text = currentMood.moodName

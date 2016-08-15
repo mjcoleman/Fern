@@ -106,10 +106,13 @@ class MCMoodStoreManager: NSObject {
     /*
      Will retrieve all Moods from the core data store, convert them to an MCMood, add them to an array and return that array.
      */
-    func getMoodsFromStore()->[MCMood]{
+    func getMoodsFromStore(number : Int)->[MCMood]{
         var allMoods : [MCMood]=[]
         do{
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
+            if(number < Constants.ALL_REQUESTS){
+                request.fetchLimit = number
+            }
             let allResults = try container?.viewContext.fetch(request)
             for obj in allResults!{
                 var mood : MCMood = MCMood(object: obj as! NSManagedObject)
@@ -124,14 +127,7 @@ class MCMoodStoreManager: NSObject {
     }
     
     
-    /*
-     Will return all moods from the core data store sorted via a key.
-     */
-    func sortMoodsFromStore(key : String)->[MCMood]{
-        return []
-        
-    }
-    
+ 
     
 
 
