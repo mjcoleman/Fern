@@ -180,10 +180,10 @@
 		4C2AB5911D486237000633A0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
 				4CD849BC1D61BD970004ECFA /* MCCalCellCollectionViewCell.swift */,
 				4CD849B41D6196B90004ECFA /* MCTableSectionHeaderViewController.swift */,
 				4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */,
-				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
 				4C2AB5881D484856000633A0 /* MCMoodCellController.swift */,
 				4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */,
 				4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */,
