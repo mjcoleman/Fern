@@ -17,10 +17,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
   
     var watchsession : WCSession!
     
-    override func awake(withContext context: AnyObject?) {
+  override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
+
     }
     
     override func willActivate() {
@@ -42,7 +41,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func newMood() {
         self.presentTextInputController(withSuggestions: ["Test"], allowedInputMode: WKTextInputMode.plain, completion: { (answers) -> Void in
-            if(answers?.count > 0){
+            if((answers?.count)! > 0){
                 var answer = answers?.first as! String!
                 self.watchsession.sendMessage(["newmood":answer!], replyHandler: nil, errorHandler: nil)
             }

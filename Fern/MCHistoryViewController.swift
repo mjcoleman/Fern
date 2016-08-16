@@ -93,7 +93,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if moodObjects?.count > 0 {
+        if (moodObjects?.count)! > 0 {
             return (moodObjects?.count)!
         }
         return 0
@@ -114,7 +114,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         if(uniqueDays[section] == NSDate().dateToString(hourmin: false, dayofweek: false, daymonth: true, year: true)){
             header.sectionLabel.text = "TODAY"
         }else{
-            header.sectionLabel.text = uniqueDays[section].capitalized
+            header.sectionLabel.text = uniqueDays[section].uppercased()
         }
         return header
     }

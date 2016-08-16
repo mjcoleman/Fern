@@ -18,6 +18,7 @@ class MoodDetailsViewController: UIViewController {
     @IBOutlet weak var moodLon: UILabel!
     @IBOutlet weak var moodNotes: UILabel!
     @IBOutlet weak var moodMap: MKMapView!
+    @IBOutlet var moodCountLabel : UILabel!
     
    //Object will be passed from ViewController
     var moodData : MCMood?
@@ -38,7 +39,7 @@ class MoodDetailsViewController: UIViewController {
         moodName.text = moodData?.moodName
        // moodNotes.text = moodData?.moodNotes
         moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
-        
+        moodCountLabel.text = "YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " 8 TIMES"
         
         
         

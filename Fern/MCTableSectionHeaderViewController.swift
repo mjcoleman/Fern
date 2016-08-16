@@ -20,13 +20,14 @@ class MCTableSectionHeaderViewController: UITableViewHeaderFooterView {
         let drawingContext = UIGraphicsGetCurrentContext()
         drawingContext?.setLineWidth(0.75)
         drawingContext?.setStrokeColor(UIColor.white.cgColor)
-        drawingContext?.moveTo(x: 5, y: self.frame.size.height/2)
-        drawingContext?.addLineTo(x: self.sectionLabel.frame.origin.x - 5, y: self.frame.size.height/2)
+        drawingContext?.move(to: CGPoint(x: 5, y: self.frame.size.height/2))
+        drawingContext?.addLine(to: CGPoint(x: self.sectionLabel.frame.origin.x - 5, y: self.frame.size.height/2))
         drawingContext?.strokePath()
-        drawingContext?.moveTo(x: self.sectionLabel.frame.origin.x + self.sectionLabel.frame.width + 5, y: self.frame.size.height/2)
-        drawingContext?.addLineTo(x: self.frame.origin.x + self.frame.size.width - 5, y: self.frame.size.height/2)
+        drawingContext?.move(to: CGPoint(x: self.sectionLabel.frame.origin.x + self.sectionLabel.frame.width + 5, y: self.frame.size.height/2))
+        drawingContext?.addLine(to:CGPoint(x: self.frame.origin.x + self.frame.size.width - 5, y: self.frame.size.height/2))
         drawingContext?.strokePath()
-
+        
+        
         
     }
 

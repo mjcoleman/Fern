@@ -17,7 +17,6 @@
 		4C7336571D6015ED009480D0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7336561D6015ED009480D0 /* LocalAuthentication.framework */; };
 		4C7336591D60170B009480D0 /* MCAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */; };
 		4C87EF7B1D48BBD900237D7C /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */; };
-		4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C87EF7C1D48BBF800237D7C /* Empty.xib */; };
 		4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */; };
 		4C9A53F51D4F38330067F558 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A53F31D4F38330067F558 /* Interface.storyboard */; };
 		4C9A53F71D4F38330067F558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A53F61D4F38330067F558 /* Assets.xcassets */; };
@@ -104,7 +103,6 @@
 		4C7336561D6015ED009480D0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAuthenticationViewController.swift; sourceTree = "<group>"; };
 		4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
-		4C87EF7C1D48BBF800237D7C /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		4C9A53ED1D4EF4F20067F558 /* MCMoodStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodStoreManager.swift; sourceTree = "<group>"; };
 		4C9A53F11D4F38330067F558 /* Fern Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fern Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9A53F41D4F38330067F558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				4CBBCF3A1D46E4E7000A413E /* LaunchScreen.storyboard */,
 				4C87EF7A1D48BBD900237D7C /* SignPainter.ttc */,
 				4CBBCF3D1D46E4E7000A413E /* Info.plist */,
-				4C87EF7C1D48BBF800237D7C /* Empty.xib */,
 				4CBBCF351D46E4E7000A413E /* Fern.xcdatamodeld */,
 			);
 			path = Fern;
@@ -445,7 +442,6 @@
 				4CDACC181D603C720062EB10 /* MCHistory.xib in Resources */,
 				4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */,
 				4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */,
-				4C87EF7D1D48BBF800237D7C /* Empty.xib in Resources */,
 				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
 				4CD849B31D6196340004ECFA /* MCTableSectionHeader.xib in Resources */,
 				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,

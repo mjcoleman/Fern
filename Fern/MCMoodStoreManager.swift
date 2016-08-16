@@ -31,7 +31,7 @@ class MCMoodStoreManager: NSObject {
     func getLastMood() -> MCMood{
         print("Called get last mood")
         
-        var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, date: NSDate.distantPast)
+        var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, date: NSDate.distantPast as NSDate)
         
         //Get the count of items in the data store
         let countRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")

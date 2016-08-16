@@ -16,6 +16,7 @@ class MCMoodCellController: UITableViewCell {
     var lastInSection : Bool = false;
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +26,12 @@ class MCMoodCellController: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        let bgView = UIView()
+        bgView.backgroundColor = UIColor.clear
+        
+        self.selectedBackgroundView = bgView
+        
 
         // Configure the view for the selected state
     }
@@ -37,17 +44,17 @@ class MCMoodCellController: UITableViewCell {
         drawingContext?.setStrokeColor(UIColor.white.cgColor)
         drawingContext?.setFillColor(UIColor.white.cgColor)
         if(firstInSection){
-            drawingContext?.moveTo(x: 30, y: self.frame.size.height/2)
-            drawingContext?.addLineTo(x:30, y: self.frame.size.height)
+            drawingContext?.move(to:CGPoint(x: 30, y: self.frame.size.height/2))
+            drawingContext?.addLine(to:CGPoint(x:30, y: self.frame.size.height))
             drawingContext?.strokePath()
         }else if(lastInSection){
-            drawingContext?.moveTo(x: 30, y: 0)
-            drawingContext?.addLineTo(x:30, y: self.frame.size.height/2)
+            drawingContext?.move(to:CGPoint(x: 30, y: 0))
+            drawingContext?.addLine(to:CGPoint(x:30, y: self.frame.size.height/2))
             drawingContext?.strokePath()
 
         }else{
-            drawingContext?.moveTo(x: 30, y: 0)
-            drawingContext?.addLineTo(x:30, y: self.frame.size.height)
+            drawingContext?.move(to:CGPoint(x: 30, y: 0))
+            drawingContext?.addLine(to:CGPoint(x:30, y: self.frame.size.height))
             drawingContext?.strokePath()
             
         }
