@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11191" systemVersion="16A286a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11198.2" systemVersion="16A294a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SignPainter.ttc">
-            <string>SignPainter-HouseScript</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
@@ -16,9 +11,9 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Fern_Watch" customModuleProvider="target">
                     <items>
                         <label width="136" height="40" alignment="left" text="Previously" textAlignment="center" id="ueB-tr-5mt">
-                            <fontDescription key="font" name="SignPainter-HouseScript" family="SignPainter" pointSize="33"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                         </label>
-                        <label width="136" height="44" alignment="left" text="Mood" textAlignment="center" minimumScaleFactor="0.5" id="sDg-ml-KED">
+                        <label width="136" height="44" alignment="left" text="Nervous" textAlignment="center" minimumScaleFactor="0.5" id="sDg-ml-KED">
                             <fontDescription key="font" type="system" pointSize="33"/>
                         </label>
                         <button width="136" alignment="left" title="How Are You Feeling?" id="jvN-W2-LeC">

@@ -28,7 +28,7 @@ class MCMoodInputView : UIView{
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextViewDelegate{
     
     var locationOn : Bool = true
-    var locationManager = CLLocationManager()
+    var locationManager = MCLocationManager.init()
     var lastMood : MCMood?
     let moodManager : MCMoodStoreManager = MCMoodStoreManager.sharedInstance
     let watchManager : MCWatchSessionManager = MCWatchSessionManager.sharedInstance
@@ -44,7 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet var moodEntryView : UIVisualEffectView!
    
     
-    @IBOutlet var moodInputView : MCMoodInputView!
+    @IBOutlet var moodInputView : UIView!
     @IBOutlet var notesView : UIView!
     
     //Overriden Functions
@@ -52,21 +52,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         super.viewDidLoad()
         
         
-        locationManager.delegate = self;
-        //moodNameField.delegate = self;
-        //moodNoteField.delegate = self;
+        moodNameField.delegate = self;
+        moodNoteField.delegate = self;
         
         //Move to "first run" function.
-        if CLLocationManager.authorizationStatus() == .notDetermined{
-            locationManager.requestAlwaysAuthorization()
-        }
-        
+        self.locationOn = locationManager.locationEnabled
         
         self.setupInterface()
         
         
         //Notification center stuff
-        //NotificationCenter.default.addObserver(self, selector: #selector(self.setupInterface), name: "updateUI" as NSNotification.Name, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setupInterface), name:NSNotification.Name(rawValue: "updateUI"), object: nil)
         
         
         notesView.frame = CGRect(x: self.view.frame.width + 20, y: notesView.frame.origin.y, width: notesView.frame.size.width, height: notesView.frame.size.height);
@@ -79,22 +76,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         // Dispose of any resources that can be recreated.
     }
     
-   func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mooddetails" {
             let moodDetailsVC = segue.destination as! MoodDetailsViewController
             moodDetailsVC.moodData = lastMood
         }
+
     }
-    
-    
     
     
     //Functions
     func setupInterface(){
         
-       // self.moodNameField.text = ""
-       // self.moodNoteField.text = ""
+       self.moodNameField.text = ""
+       self.moodNoteField.text = ""
         
         //Get last Mood from MoodManager
         lastMood = moodManager.getLastMood()
@@ -102,35 +99,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             //No last mood. HANDLE THIS
             
         }else{
-            //lastMoodLabel.setTitle(lastMood?.moodName, for: UIControlState.normal)
-           //moodTimeDiffLabel.text = NSDate().timeDifferenceToString(date: (lastMood?.moodDate)!) as String + " you were feeling"
+            lastMoodLabel.setTitle(lastMood?.moodName.uppercased(), for: UIControlState.normal)
+           moodTimeDiffLabel.text = (NSDate().timeDifferenceToString(date: (lastMood?.moodDate)!) as String + " you were feeling").uppercased()
         }
         
         
         
-        switch CLLocationManager.authorizationStatus(){
-        case .authorizedAlways:
-           // locationToggle.isEnabled = true
-            locationManager.startUpdatingLocation()
-            break;
-        case .authorizedWhenInUse:
-          //  locationToggle.isEnabled = false
-            break;
-        case .restricted:
-          //  locationToggle.isEnabled = false
-            break;
-        case .denied:
-          //  locationToggle.isEnabled = false
-            break
-        default:
-            break
-        }
+        
 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true);
-        return false;
+        self.view.endEditing(true)
+        return false
     }
     
     
@@ -150,22 +131,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
 
     @IBAction func AddMood(_ sender: AnyObject) {
-        let currentLocation : CLLocation = locationManager.location!
+        let currentLocation : CLLocationCoordinate2D = MCLocationManager.sharedInstance.getCurrentLocation()
         
-        let newMood : MCMood = MCMood(name: moodNameField.text! as NSString, notes: moodNoteField.text as NSString?, lat:currentLocation.coordinate.latitude , lon: currentLocation.coordinate.longitude, date: NSDate())
+        let newMood : MCMood = MCMood(name: moodNameField.text! as NSString, notes: moodNoteField.text! as NSString?, lat:currentLocation.latitude , lon: currentLocation.longitude, date: NSDate())
         let success : Bool = moodManager.addMoodToStore(mood: newMood)
        
         if !success{
-            print("Couldn't add mood")
+            print("Couldn't add mood") 
             
         }
         self.setupInterface()
+        self.view.endEditing(true)
+        
+        if(self.notesView.frame.origin.x < self.view.frame.size.width){
+            self.CancelNotes(self);
+        }
+        
     
     }
     
     @IBAction func AddNotes(_ sender: AnyObject){
         UIView.animate(withDuration: 0.5, animations: {
-            self.notesView.frame = CGRect(x: 0, y: self.notesView.frame.origin.y, width: self.notesView.frame.size.width, height: self.notesView.frame.size.height);
+            self.notesView.frame = CGRect(x: 10, y: self.notesView.frame.origin.y, width: self.notesView.frame.size.width, height: self.notesView.frame.size.height);
             self.moodInputView.frame = CGRect(x: 0 - self.moodInputView.frame.size.width, y: self.moodInputView.frame.origin.y, width: self.moodInputView.frame.size.width, height: self.moodInputView.frame.size.height);
             
         })
@@ -173,7 +160,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     @IBAction func CancelNotes(_ sender: AnyObject){
         UIView.animate(withDuration: 0.5, animations: {
-            self.moodInputView.frame = CGRect(x: 0, y: self.moodInputView.frame.origin.y, width: self.moodInputView.frame.size.width, height: self.moodInputView.frame.size.height);
+            self.moodInputView.frame = CGRect(x: 10, y: self.moodInputView.frame.origin.y, width: self.moodInputView.frame.size.width, height: self.moodInputView.frame.size.height);
             self.notesView.frame = CGRect(x: self.view.frame.width + 20, y: self.notesView.frame.origin.y, width: self.notesView.frame.size.width, height: self.notesView.frame.size.height);
             
         })

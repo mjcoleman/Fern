@@ -10,11 +10,15 @@ import UIKit
 import CoreData
 import MapKit
 
-class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
     var moodObjects : [MCMood]?
     let manager : MCMoodStoreManager = MCMoodStoreManager()
     var uniqueDays : [String] = []
+    
+    typealias MonthTuple = (name: String, countDays: Int, startDay: Int)
+    var montharray : [MonthTuple] = [(name: "August", countDays:31, startDay:1),(name: "July", countDays: 31, startDay:5)]
+    
     
     
     
@@ -47,6 +51,13 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         let calCellNib = UINib(nibName: "MCCalCellCollectionViewCell", bundle: nil)
         calView.register(calCellNib, forCellWithReuseIdentifier: "calcell")
         
+        let collectionHeaderNib = UINib(nibName: "MCCollectionHeaderView", bundle: nil)
+        calView.register(collectionHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "collectionheader")
+    
+        var layout = calView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
+        layout.headerReferenceSize = CGSize(width: 100, height: 50)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,17 +71,18 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         switch viewSwitch.selectedSegmentIndex{
         case 0:
             //Recent
-          //  mapView.isHidden = true
+            mapView.isHidden = true
             calView.isHidden = true;
             historyTable.isHidden = false
             break
         case 1:
             //Locations
-           // mapView.isHidden = false
+            mapView.isHidden = false
             //historyTable.isHidden = true
             break
         case 2:
             //Calendar
+            mapView.isHidden = true
             historyTable.isHidden = true;
             calView.isHidden = false;
             break
@@ -159,22 +171,34 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
      func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return montharray.count
     }
     
     
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 100
+        return montharray[section].countDays + montharray[section].startDay
     }
     
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : MCCalCellCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calcell", for: indexPath) as! MCCalCellCollectionViewCell
-        
-        // Configure the cell
+
+        cell.dateLabel.text =  String((indexPath.item+1) - montharray[indexPath.section].startDay)
+        if(((indexPath.item+1) - montharray[indexPath.section].startDay) <= 0){
+            cell.isSpacer = true;
+        }
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header : MCCollectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "collectionheader", for: indexPath) as! MCCollectionHeaderView
+        
+        header.headerLabel.text = (montharray[indexPath.section].name).uppercased() + " 2016"
+        return header
+    }
+    
+    
     
     // MARK: UICollectionViewDelegate
     

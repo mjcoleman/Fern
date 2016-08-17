@@ -30,13 +30,19 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
+			<string>Recent Moods</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>fern.showrecent</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
 			<string>Mood Map</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>fern.showmap</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Mood History</string>
+			<string>All Mood History</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>fern.showhistory</string>
 		</dict>

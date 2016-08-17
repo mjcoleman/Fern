@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MCLocationManager: NSObject {
+class MCLocationManager: NSObject, CLLocationManagerDelegate{
     static let sharedInstance  = MCLocationManager()
     var locationEnabled = false;
+    var clManager = CLLocationManager()
+    
     
     override init(){
         super.init()
-        
+        if CLLocationManager.authorizationStatus() == .notDetermined{
+            clManager.requestAlwaysAuthorization()
+        }
+        switch CLLocationManager.authorizationStatus(){
+        case .authorizedAlways:
+            clManager.startUpdatingLocation()
+            break;
+        case .authorizedWhenInUse:
+            break;
+        case .restricted:
+            break;
+        case .denied:
+            break
+        default:
+            break
+        }
+    }
+    
+    func getCurrentLocation() -> CLLocationCoordinate2D{
+        return (clManager.location?.coordinate)!
     }
 }
