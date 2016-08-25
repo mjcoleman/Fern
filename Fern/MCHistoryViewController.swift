@@ -16,25 +16,39 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     let manager : MCMoodStoreManager = MCMoodStoreManager()
     var uniqueDays : [String] = []
     
-    typealias MonthTuple = (name: String, countDays: Int, startDay: Int)
-    var montharray : [MonthTuple] = [(name: "August", countDays:31, startDay:1),(name: "July", countDays: 31, startDay:5)]
+    var montharray : [Constants.MONTH_TUPLE] = [(name: "August", countDays:31, startDay:1),(name: "July", countDays: 31, startDay:5)]
     
-    
-    
-    
+  
     @IBOutlet var historyTable: UITableView!
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var viewSwitch : UISegmentedControl!
     @IBOutlet var moodCount : UILabel!
-    
     @IBOutlet var calView : UICollectionView!
     
+  func setupView(categoryType : Constants.HISTORY_CATEGORY_TYPE, arguments: Constants.HISTORY_ARGUMENT_TUPLE?){
+        switch categoryType{
+        case .HISTORY_MOOD_NAME :
+            moodObjects = manager.getMoodsForMoodName(name: (arguments?.moodName)!)
+            break
+        case .HISTORY_MOOD_DATE :
+            moodObjects = manager.getMoodsForPeriod(from: (arguments?.moodStart)!, to: (arguments?.moodEnd)!)
+            break
+        case .HISTORY_MOOD_LOCATION :
+            moodObjects = manager.getMoodsForLocation(location: (arguments?.moodLocation)!)
+            break
+        case .HISTORY_MOOD_ALL :
+            moodObjects = manager.getMoodsFromStore(number: Constants.ALL_REQUESTS)
+            break
+        default :
+            break
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Get all the moods
-        moodObjects = manager.getMoodsFromStore(number: Constants.ALL_REQUESTS)
-       
+
         //Reverse the array for looking at moods in reverse chronological order.
         moodObjects?.reverse()
         

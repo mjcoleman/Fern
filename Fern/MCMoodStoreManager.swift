@@ -10,7 +10,7 @@
 
 import UIKit
 import CoreData
-
+import CoreLocation
 
 class MCMoodStoreManager: NSObject {
     static let sharedInstance = MCMoodStoreManager()
@@ -156,13 +156,13 @@ class MCMoodStoreManager: NSObject {
     
     
     /*
-     Retrieve All Moods with a specific MoodName
+     Retrieve All Moods with a specific MoodName. Case Insensitive [c].
     */
     func getMoodsForMoodName(name : String)->[MCMood]{
         var moods : [MCMood] = []
         do{
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
-            let namePredicate : NSPredicate = NSPredicate(format: "moodname == %@", name)
+            let namePredicate : NSPredicate = NSPredicate(format: "moodname ==[c] %@", name)
             request.predicate = namePredicate
             
             let nameResults = try container?.viewContext.fetch(request)
@@ -179,6 +179,13 @@ class MCMoodStoreManager: NSObject {
         
     }
  
+    func getMoodsForLocation(location : CLLocationCoordinate2D)->[MCMood]{
+        var moods : [MCMood] = []
+        
+        return moods
+    }
+    
+    
     
     /*
      May be better to use something like this function as a general rule.

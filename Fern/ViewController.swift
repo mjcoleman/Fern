@@ -87,8 +87,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         if segue.identifier == "mooddetails" {
             let moodDetailsVC = segue.destination as! MoodDetailsViewController
             moodDetailsVC.moodData = lastMood
+        }else if segue.identifier == "moodhistory"{
+            let moodHistoryVC = segue.destination as! MCHistoryViewController
+          
+            
+            moodHistoryVC.setupView(categoryType: Constants.HISTORY_CATEGORY_TYPE.HISTORY_MOOD_ALL, arguments: nil)
         }
-
     }
     
     
@@ -153,6 +157,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
         
     
+    }
+    
+    @IBAction func ViewHistory(_ sender: AnyObject){
+        //let moodHistoryVC = MCHistoryViewController(categoryType: Constants.HISTORY_CATEGORY_TYPE.HISTORY_MOOD_ALL, arguments: nil)
+        //self.present(moodHistoryVC, animated: true, completion: nil)
+        
     }
     
     @IBAction func AddNotes(_ sender: AnyObject){

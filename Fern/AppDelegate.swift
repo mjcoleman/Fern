@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
   
     //3D Touch Shortcuts
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+    @nonobjc func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
         
     }
 
