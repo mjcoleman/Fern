@@ -60,12 +60,11 @@ class MCMoodStoreManager: NSObject {
             
             
         }catch{
-            
+            //Error getting the last mood.
         }
             
         
-            return lastMood
-        
+        return lastMood
     }
     
     /*
@@ -120,6 +119,8 @@ class MCMoodStoreManager: NSObject {
             }
            
         }catch{
+            //Error getting moods. Make sure we return an empty array.
+            allMoods = [];
             
         }
         return allMoods
@@ -127,7 +128,81 @@ class MCMoodStoreManager: NSObject {
     }
     
     
+    /*
+     Will retrieve moods within a specified date range.
+    */
+    func getMoodsForPeriod(from : NSDate, to : NSDate)->[MCMood]{
+        var moods : [MCMood] = []
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
+            let datePredicate : NSPredicate = NSPredicate(format:"mooddate >= %@ && mooddate < %@", from, to)
+            request.predicate = datePredicate;
+            
+            let dateResults = try container?.viewContext.fetch(request)
+            for obj in dateResults!{
+                var mood : MCMood = MCMood(object: obj as! NSManagedObject)
+                moods.append(mood)
+            }
+            
+        }catch{
+            //Error getting moods OR no moods in range. Make sure we return an empty array.
+            moods = []
+            
+        }
+        
+        
+        return moods;
+    }
+    
+    
+    /*
+     Retrieve All Moods with a specific MoodName
+    */
+    func getMoodsForMoodName(name : String)->[MCMood]{
+        var moods : [MCMood] = []
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
+            let namePredicate : NSPredicate = NSPredicate(format: "moodname == %@", name)
+            request.predicate = namePredicate
+            
+            let nameResults = try container?.viewContext.fetch(request)
+            for obj in nameResults!{
+                var mood : MCMood = MCMood(object: obj as! NSManagedObject)
+                moods.append(mood)
+            }
+        }catch{
+            //Error getting moods OR no moods with name. Make sure we return an empty array.
+            moods = []
+        }
+        
+        return moods
+        
+    }
  
+    
+    /*
+     May be better to use something like this function as a general rule.
+    */
+    func getMoodsWithPredicate(pred : NSPredicate)->[MCMood]{
+        var moods : [MCMood] = []
+        
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
+            request.predicate = pred
+            
+            let results = try container?.viewContext.fetch(request)
+            for obj in results!{
+                var mood : MCMood  = MCMood(object: obj as! NSManagedObject)
+                moods.append(mood)
+            }
+            
+        }catch{
+            //Error getting moods OR no moods matching predicate. Make sure we return an empty array.
+            moods = []
+        }
+        
+        return moods
+    }
     
 
 

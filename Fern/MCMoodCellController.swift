@@ -31,9 +31,6 @@ class MCMoodCellController: UITableViewCell {
         bgView.backgroundColor = UIColor.clear
         
         self.selectedBackgroundView = bgView
-        
-
-        // Configure the view for the selected state
     }
     
     override func draw(_ rect: CGRect) {
@@ -60,9 +57,6 @@ class MCMoodCellController: UITableViewCell {
         }
       
         drawingContext?.fillEllipse(in: CGRect(x: 27.5, y: self.frame.size.height/2 - 2.5, width: 5, height: 5))
-
-        
-        
      
     }
 

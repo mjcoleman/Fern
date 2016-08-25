@@ -28,22 +28,14 @@ class MoodDetailsViewController: UIViewController {
         
         print(moodData?.moodLocation)
         
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: (moodData?.moodLocation)!, span: span)
-            moodMap.setRegion(region, animated: false)
-
-        
-        
-        
-        
-        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: (moodData?.moodLocation)!, span: span)
+        moodMap.setRegion(region, animated: false)
         moodName.text = moodData?.moodName
         moodNotes.text = moodData?.moodNotes
         moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
         moodCountLabel.text = "YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " 8 TIMES"
-        
-        
-        
+       
         
     }
 

@@ -69,6 +69,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         notesView.frame = CGRect(x: self.view.frame.width + 20, y: notesView.frame.origin.y, width: notesView.frame.size.width, height: notesView.frame.size.height);
         
         
+        
+        
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

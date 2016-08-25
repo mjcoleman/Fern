@@ -56,7 +56,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
         var layout = calView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
-        layout.headerReferenceSize = CGSize(width: 100, height: 50)
+        layout.headerReferenceSize = CGSize(width: 100, height:83)
         
     }
 

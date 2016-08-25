@@ -25,8 +25,6 @@ class MCMood: NSObject {
     
    init(object : NSManagedObject){
         
-    
-        
         moodLat = (object.value(forKey: "moodlat")) as! Double!
         moodLon = (object.value(forKey: "moodlon")) as! Double!
     
