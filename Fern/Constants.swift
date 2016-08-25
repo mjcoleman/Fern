@@ -11,7 +11,7 @@ import CoreLocation
 class Constants{
     static let ALL_REQUESTS = 10000
     typealias MONTH_TUPLE = (name: String, countDays: Int, startDay: Int)
-    typealias HISTORY_ARGUMENT_TUPLE = (moodName : String, moodStart : NSDate, moodEnd: NSDate, moodLocation: CLLocationCoordinate2D, viewSegments: [Bool])
+    typealias HISTORY_ARGUMENT_TUPLE = (moodName : String?, moodStart : NSDate?, moodEnd: NSDate?, moodLocation: CLLocationCoordinate2D?, viewSegments: [Bool]?)
     
     enum HISTORY_CATEGORY_TYPE : Int{
         case HISTORY_MOOD_NAME  = 0

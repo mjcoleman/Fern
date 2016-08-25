@@ -18,7 +18,7 @@ class MoodDetailsViewController: UIViewController {
     @IBOutlet weak var moodLon: UILabel!
     @IBOutlet weak var moodNotes: UITextView!
     @IBOutlet weak var moodMap: MKMapView!
-    @IBOutlet var moodCountLabel : UILabel!
+    @IBOutlet var moodCountLabel : UIButton!
     
    //Object will be passed from ViewController
     var moodData : MCMood?
@@ -34,7 +34,7 @@ class MoodDetailsViewController: UIViewController {
         moodName.text = moodData?.moodName
         moodNotes.text = moodData?.moodNotes
         moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
-        moodCountLabel.text = "YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " 8 TIMES"
+        moodCountLabel.setTitle(("YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " \(MCMoodStoreManager.sharedInstance.getCountForMoodName(name: (moodData?.moodName)!)) TIMES"), for:UIControlState.normal)
        
         
     }
@@ -50,4 +50,10 @@ class MoodDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func showAllMoods(_ sender: AnyObject){
+        let historyView = storyboard?.instantiateViewController(withIdentifier: "historyview") as! MCHistoryViewController
+        historyView.setupView(categoryType: Constants.HISTORY_CATEGORY_TYPE.HISTORY_MOOD_NAME, arguments: (moodData?.moodName, nil, nil, nil, nil))
+        self.present(historyView, animated: true, completion: nil)
+    }
 }

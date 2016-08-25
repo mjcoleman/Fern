@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0EF2C11D6E973700BF87FE /* ISSUES.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EF2C01D6E973700BF87FE /* ISSUES.rtf */; };
 		4C2AB5871D484787000633A0 /* MCMoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2AB5861D484787000633A0 /* MCMoodCellView.xib */; };
 		4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5881D484856000633A0 /* MCMoodCellController.swift */; };
 		4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */; };
@@ -95,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C0EF2C01D6E973700BF87FE /* ISSUES.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ISSUES.rtf; sourceTree = "<group>"; };
 		4C2AB5861D484787000633A0 /* MCMoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMoodCellView.xib; sourceTree = "<group>"; };
 		4C2AB5881D484856000633A0 /* MCMoodCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodCellController.swift; sourceTree = "<group>"; };
 		4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCHistoryViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		4CBBCF2D1D46E4E7000A413E /* Fern */ = {
 			isa = PBXGroup;
 			children = (
+				4C0EF2C01D6E973700BF87FE /* ISSUES.rtf */,
 				4C2AB5901D486222000633A0 /* UI */,
 				4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */,
 				4C2AB5911D486237000633A0 /* View Controllers */,
@@ -450,6 +453,7 @@
 				4C9A54191D4F396F0067F558 /* SignPainter.ttc in Resources */,
 				4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */,
 				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
+				4C0EF2C11D6E973700BF87FE /* ISSUES.rtf in Resources */,
 				4CD849B31D6196340004ECFA /* MCTableSectionHeader.xib in Resources */,
 				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,
 			);

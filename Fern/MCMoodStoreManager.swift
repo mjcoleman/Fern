@@ -178,7 +178,69 @@ class MCMoodStoreManager: NSObject {
         return moods
         
     }
+    
+    
+    
+    /*
+     Returns how many times a mood matching 'name' has been entered
+    */
+    func getCountForMoodName(name: String)->Int{
+        return self.getMoodsForMoodName(name: name).count
+    }
  
+    
+    
+    /*
+     Looks through all moods to find most common moods and returns those as a string array.
+    */
+    func getMostCommonMoods(inDateRange: (dstart: NSDate, dend: NSDate)?, inLocation:CLLocationCoordinate2D?)->String{
+        var moodsToTest : [MCMood] = []
+        
+        if(inDateRange?.dstart != nil){
+            //Sort by date first.
+            moodsToTest = self.getMoodsForPeriod(from: (inDateRange?.dstart)!, to: (inDateRange?.dend)!)
+            
+        }else if(inLocation != nil){
+            //Sort by location first
+            moodsToTest = self.getMoodsForLocation(location: inLocation!);
+        
+        }else{
+            //We're looking for most common in all moods.
+            moodsToTest = self.getMoodsFromStore(number: Constants.ALL_REQUESTS)
+        }
+        
+        
+        //This is a nightmare.
+        //Put all mood names into an array of strings.
+        var moodNames : [String] = []
+        
+        for x in moodsToTest{
+            let mood : MCMood = x as MCMood
+            moodNames.append(mood.moodName)
+        }
+        
+        
+        //Count how many times each mood is in that array and make a dictionary
+        var counts : [String:Int] = [:]
+        for c in moodNames{
+            counts[c] = (counts[c] ?? 0) + 1
+        }
+   
+        //Sort them into an array of tuples (because we can't sort a dictionary
+        let sortedCounts = counts.sorted{$0.value > $1.value}
+        
+        //If the top two have the same amount of moods entered, forget the whole thing, no most common mood.
+        if(sortedCounts[0].1 == sortedCounts[1].1){
+            return "";
+        }
+        
+        //Otherwise we have a winner, return that.
+        return sortedCounts[0].0
+    }
+    
+
+    
+    
     func getMoodsForLocation(location : CLLocationCoordinate2D)->[MCMood]{
         var moods : [MCMood] = []
         

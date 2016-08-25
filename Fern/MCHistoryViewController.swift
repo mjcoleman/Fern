@@ -15,7 +15,8 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var moodObjects : [MCMood]?
     let manager : MCMoodStoreManager = MCMoodStoreManager()
     var uniqueDays : [String] = []
-    
+    var titleText : String = "History"
+    var mostCommonMoodText : String = ""
     var montharray : [Constants.MONTH_TUPLE] = [(name: "August", countDays:31, startDay:1),(name: "July", countDays: 31, startDay:5)]
     
   
@@ -24,20 +25,26 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var viewSwitch : UISegmentedControl!
     @IBOutlet var moodCount : UILabel!
     @IBOutlet var calView : UICollectionView!
+    @IBOutlet var titleLabel : UILabel!
+    @IBOutlet var commonMoodLabel : UILabel!
+    
     
   func setupView(categoryType : Constants.HISTORY_CATEGORY_TYPE, arguments: Constants.HISTORY_ARGUMENT_TUPLE?){
         switch categoryType{
         case .HISTORY_MOOD_NAME :
             moodObjects = manager.getMoodsForMoodName(name: (arguments?.moodName)!)
+            titleText = (arguments?.moodName)!
             break
         case .HISTORY_MOOD_DATE :
             moodObjects = manager.getMoodsForPeriod(from: (arguments?.moodStart)!, to: (arguments?.moodEnd)!)
+            
             break
         case .HISTORY_MOOD_LOCATION :
             moodObjects = manager.getMoodsForLocation(location: (arguments?.moodLocation)!)
             break
         case .HISTORY_MOOD_ALL :
             moodObjects = manager.getMoodsFromStore(number: Constants.ALL_REQUESTS)
+            mostCommonMoodText = manager.getMostCommonMoods(inDateRange: nil, inLocation: nil)
             break
         default :
             break
@@ -55,6 +62,9 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         historyTable.backgroundColor = UIColor.clear
        
         moodCount.text = moodObjects?.count.description
+        commonMoodLabel.text = mostCommonMoodText;
+       
+        titleLabel.text = titleText
         
         let cellNib = UINib(nibName: "MCMoodCellView", bundle: nil)
         historyTable.register(cellNib, forCellReuseIdentifier: "moodcell")

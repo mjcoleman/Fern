@@ -70,7 +70,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         
         
-        
+        var array = moodManager.getMostCommonMoods(inDateRange: nil, inLocation: nil)
 
         
         
