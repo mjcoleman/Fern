@@ -38,4 +38,14 @@ class MCLocationManager: NSObject, CLLocationManagerDelegate{
     func getCurrentLocation() -> CLLocationCoordinate2D{
         return (clManager.location?.coordinate)!
     }
+    
+    func checkLocationExists(lat : Double, lon: Double)->Bool{
+        return false
+    }
+    
+    func nameLocation(lat : Double, lon : Double){
+        //Search the store for this location, 
+        //Add field in locationname.
+        
+    }
 }

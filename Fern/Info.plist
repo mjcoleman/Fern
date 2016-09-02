@@ -21,11 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Pls</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SignPainter.ttc</string>
-	</array>
+	<string>Fern would like to use your location to show you Mood trends.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

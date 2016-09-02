@@ -87,6 +87,15 @@ extension NSDate{
         return count
     }
     
+    func dateExistsInStore()->Bool{
+        let dateString : String = self.dateToString(hourmin: false, dayofweek: true, daymonth: true, year: true)
+        //Do a fetch request on this date
+        
+     
+        
+        return false
+    }
+    
 
     
     

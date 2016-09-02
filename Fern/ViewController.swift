@@ -113,8 +113,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
         
         
-        
-        
+       let test = moodManager.getMoodsForDay(date: NSDate())
 
     }
     

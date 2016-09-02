@@ -29,7 +29,6 @@ class MCMoodStoreManager: NSObject {
      If there is none, we'll return an empty mood object.
      */
     func getLastMood() -> MCMood{
-        print("Called get last mood")
         
         var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, date: NSDate.distantPast as NSDate)
         
@@ -76,23 +75,71 @@ class MCMoodStoreManager: NSObject {
         newMood.setValue(mood.moodName, forKey: "moodname")
         newMood.setValue(mood.moodNotes, forKey: "moodnotes")
         
+        let currentDate  = NSDate()
+        //Is there an entity matching day/month/year?
+        //If not create a new one.
+        //otherwise keep track of the current one.
+        
+        
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Day")
+            let datePredicate : NSPredicate = NSPredicate(format: "datename == %@", currentDate.dateToString(hourmin: false, dayofweek: true, daymonth: true, year: true))
+            request.predicate = datePredicate;
+            
+            let dateResults = try container?.viewContext.fetch(request)
+            if(dateResults?.count != 0){
+                let existingDate : NSManagedObject = dateResults?[0] as! NSManagedObject
+                let moodsAtdate = existingDate.mutableSetValue(forKey: "moods")
+                moodsAtdate.add(newMood)
+            }else{
+                let entityDate = NSEntityDescription.entity(forEntityName: "Day", in: (container?.viewContext)!)
+                let newDate = NSManagedObject(entity: entityDate!, insertInto: (container?.viewContext)!)
+                newDate.setValue(currentDate, forKey: "date")
+                newDate.setValue(currentDate.dateToString(hourmin: false, dayofweek: true, daymonth: true, year: true), forKey: "datename")
+                newMood.setValue(newDate, forKey: "mooddate")
+                
+            }
+
+            
+            
+            }catch{
+            
+            }
+        
+
+        
+        
+                   
         if mood.hasLocation{
             
-            newMood.setValue(mood.moodLat, forKey: "moodlat")
-            newMood.setValue(mood.moodLon, forKey: "moodlon")
+            
+            //Check if location exists?
+            //If not new entity location.
+            let locationExists = MCLocationManager.sharedInstance.checkLocationExists(lat: mood.moodLat, lon: mood.moodLon)
+            if(locationExists){
+                //Add mood to location
+            }else{
+                //Create a new location
+                let entityLocation = NSEntityDescription.entity(forEntityName: "Location", in: (container?.viewContext)!)
+                let newLocation = NSManagedObject(entity: entityLocation!, insertInto: (container?.viewContext)!)
+                newLocation.setValue(mood.moodLat, forKey: "locationlat")
+                newLocation.setValue(mood.moodLon, forKey: "locationlon")
+               
+                newMood.setValue(newLocation, forKey: "moodlocation")
+                newMood.setValue(true, forKey: "hasLocation")
+            }
+            
+            
+            
         }
         
-        
-        
-        let currentDate  = NSDate()
-        
-        newMood.setValue(currentDate, forKey: "mooddate")
+
         do{
-            try container?.viewContext.save()
+            try newMood.managedObjectContext?.save()
             MCWatchSessionManager.sharedInstance.sendMoodToWatch(mood: mood)
         }catch{
             //Error Saving Mood.
-            print("Error when saving mood")
+            print(error)
             return false
             
         }
@@ -128,21 +175,55 @@ class MCMoodStoreManager: NSObject {
     }
     
     
+    
+    func getMoodsForDay(date : NSDate)->[MCMood]{
+        var moods : [MCMood] = [];
+        
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Day")
+            let datePredicate : NSPredicate = NSPredicate(format: "datename == %@", date.dateToString(hourmin: false, dayofweek: true, daymonth: true, year: true))
+            request.predicate = datePredicate;
+            
+            let dateResults = try container?.viewContext.fetch(request)
+           
+            for x in dateResults!{
+                var dateObj : NSManagedObject = x as! NSManagedObject
+                for y in dateObj.mutableSetValue(forKey: "moods"){
+                    var mood : MCMood = MCMood(object: y as! NSManagedObject)
+                    moods.append(mood)
+                }
+            }
+       
+        }catch{
+            
+        }
+        
+        
+        return moods
+    }
+    
+    
     /*
      Will retrieve moods within a specified date range.
     */
     func getMoodsForPeriod(from : NSDate, to : NSDate)->[MCMood]{
         var moods : [MCMood] = []
         do{
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
-            let datePredicate : NSPredicate = NSPredicate(format:"mooddate >= %@ && mooddate < %@", from, to)
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Day")
+            let datePredicate : NSPredicate = NSPredicate(format:"date >= %@ && date < %@", from, to)
             request.predicate = datePredicate;
             
             let dateResults = try container?.viewContext.fetch(request)
-            for obj in dateResults!{
-                var mood : MCMood = MCMood(object: obj as! NSManagedObject)
-                moods.append(mood)
+            
+            
+            for x in dateResults!{
+                var dateObj : NSManagedObject = x as! NSManagedObject
+                for y in dateObj.mutableSetValue(forKey: "moods"){
+                    var mood : MCMood = MCMood(object: y as! NSManagedObject)
+                    moods.append(mood)
+                }
             }
+            
             
         }catch{
             //Error getting moods OR no moods in range. Make sure we return an empty array.
@@ -191,6 +272,7 @@ class MCMoodStoreManager: NSObject {
     
     
     /*
+     REWRITE
      Looks through all moods to find most common moods and returns those as a string array.
     */
     func getMostCommonMoods(inDateRange: (dstart: NSDate, dend: NSDate)?, inLocation:CLLocationCoordinate2D?)->String{
@@ -230,9 +312,11 @@ class MCMoodStoreManager: NSObject {
         let sortedCounts = counts.sorted{$0.value > $1.value}
         
         //If the top two have the same amount of moods entered, forget the whole thing, no most common mood.
-        if(sortedCounts[0].1 == sortedCounts[1].1){
-            return "";
-        }
+       // if(sortedCounts[0].1 == sortedCounts[1].1){
+            return ""
+      //  }
+     
+        
         
         //Otherwise we have a winner, return that.
         return sortedCounts[0].0
@@ -273,6 +357,18 @@ class MCMoodStoreManager: NSObject {
         return moods
     }
     
+    
+    /*
+     Name a location
+     */    
+    func nameLocation(location : NSManagedObject, name : String){
+        location.setValue(name, forKey: "locationname")
+        do{
+            try location.managedObjectContext?.save()
+        }catch{
+            print("Error saving location name");
+        }
+    }
 
 
 }

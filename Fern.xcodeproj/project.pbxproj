@@ -34,6 +34,7 @@
 		4C9A541B1D4F396F0067F558 /* SignPainter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A54181D4F396F0067F558 /* SignPainter.ttc */; };
 		4C9A541D1D4F43100067F558 /* MCDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A541C1D4F43100067F558 /* MCDateExtension.swift */; };
 		4C9A541E1D4F43100067F558 /* MCDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A541C1D4F43100067F558 /* MCDateExtension.swift */; };
+		4CB35B3A1D791ECD00B7AC0A /* MyTestingclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB35B391D791ECD00B7AC0A /* MyTestingclass.swift */; };
 		4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */; };
 		4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBCF301D46E4E7000A413E /* ViewController.swift */; };
 		4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBCF321D46E4E7000A413E /* Main.storyboard */; };
@@ -123,6 +124,7 @@
 		4C9A540C1D4F38340067F558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9A54181D4F396F0067F558 /* SignPainter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttc; sourceTree = "<group>"; };
 		4C9A541C1D4F43100067F558 /* MCDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDateExtension.swift; sourceTree = "<group>"; };
+		4CB35B391D791ECD00B7AC0A /* MyTestingclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTestingclass.swift; sourceTree = "<group>"; };
 		4CBBCF2B1D46E4E7000A413E /* Fern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CBBCF301D46E4E7000A413E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				4C0EF2C01D6E973700BF87FE /* ISSUES.rtf */,
 				4C2AB5901D486222000633A0 /* UI */,
 				4CBBCF2E1D46E4E7000A413E /* AppDelegate.swift */,
+				4CB35B391D791ECD00B7AC0A /* MyTestingclass.swift */,
 				4C2AB5911D486237000633A0 /* View Controllers */,
 				4C2AB5921D486242000633A0 /* Helpers */,
 				4CBBCF381D46E4E7000A413E /* Assets.xcassets */,
@@ -484,6 +487,7 @@
 				4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */,
 				4C60A0251D63F72E000A51E3 /* MCCollectionHeaderView.swift in Sources */,
 				4CBBCF311D46E4E7000A413E /* ViewController.swift in Sources */,
+				4CB35B3A1D791ECD00B7AC0A /* MyTestingclass.swift in Sources */,
 				4CD849B71D61B2D90004ECFA /* Constants.swift in Sources */,
 				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
 				4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */,

@@ -23,10 +23,14 @@ class MCMood: NSObject {
     var moodLocation : CLLocationCoordinate2D?
     var hasLocation : Bool = false;
     
+    
    init(object : NSManagedObject){
+    
+    let loc : NSManagedObject = object.value(forKey: "moodlocation") as! NSManagedObject
+    
         
-        moodLat = (object.value(forKey: "moodlat")) as! Double!
-        moodLon = (object.value(forKey: "moodlon")) as! Double!
+        moodLat = (loc.value(forKey: "locationlat")) as! Double!
+        moodLon = (loc.value(forKey: "locationlon")) as! Double!
     
     if moodLat == 0{
         if moodLon == 0{
@@ -39,7 +43,11 @@ class MCMood: NSObject {
 
         moodName = object.value(forKey: "moodname") as! String
         moodNotes = object.value(forKey: "moodnotes") as? String
-        moodDate = object.value(forKey: "mooddate") as? NSDate
+
+    let date : NSManagedObject = object.value(forKey: "mooddate") as! NSManagedObject
+    
+    moodDate = date.value(forKey: "date") as! NSDate!
+    
     }
     
     

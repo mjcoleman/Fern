@@ -136,7 +136,7 @@
                                                 <action selector="AddNotes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o1c-tv-W4E"/>
                                             </connections>
                                         </button>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHI-5H-bwa">
+                                        <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHI-5H-bwa">
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="deh-af-4pH">
                                                 <frame key="frameInset"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
