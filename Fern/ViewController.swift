@@ -113,7 +113,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
         
         
-       let test = moodManager.getMoodsForDay(date: NSDate())
+       let test = moodManager.getMoodsForLocation(lat: -35.70168164562033, lon: 174.3530903758242)
+        
 
     }
     

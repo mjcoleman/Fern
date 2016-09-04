@@ -22,7 +22,7 @@ class MCMood: NSObject {
     var moodLon : Double=0
     var moodLocation : CLLocationCoordinate2D?
     var hasLocation : Bool = false;
-    
+    var moodLocationName : String?
     
    init(object : NSManagedObject){
     
@@ -31,6 +31,7 @@ class MCMood: NSObject {
         
         moodLat = (loc.value(forKey: "locationlat")) as! Double!
         moodLon = (loc.value(forKey: "locationlon")) as! Double!
+        moodLocationName = (loc.value(forKey: "locationname")) as! String!
     
     if moodLat == 0{
         if moodLon == 0{

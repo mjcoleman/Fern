@@ -56,12 +56,9 @@ class MCMoodStoreManager: NSObject {
             lastMood = MCMood(object: result?.first! as! NSManagedObject)
             MCWatchSessionManager.sharedInstance.sendMoodToWatch(mood: lastMood)
             
-            
-            
         }catch{
             //Error getting the last mood.
         }
-            
         
         return lastMood
     }
@@ -89,8 +86,9 @@ class MCMoodStoreManager: NSObject {
             let dateResults = try container?.viewContext.fetch(request)
             if(dateResults?.count != 0){
                 let existingDate : NSManagedObject = dateResults?[0] as! NSManagedObject
-                let moodsAtdate = existingDate.mutableSetValue(forKey: "moods")
-                moodsAtdate.add(newMood)
+                let moodsAtDate = existingDate.mutableSetValue(forKey: "moods")
+                moodsAtDate.add(newMood)
+                print(moodsAtDate)
             }else{
                 let entityDate = NSEntityDescription.entity(forEntityName: "Day", in: (container?.viewContext)!)
                 let newDate = NSManagedObject(entity: entityDate!, insertInto: (container?.viewContext)!)
@@ -112,24 +110,51 @@ class MCMoodStoreManager: NSObject {
                    
         if mood.hasLocation{
             
-            
+            var locationExists = false
+            var existingLocation : NSManagedObject?
             //Check if location exists?
+
             //If not new entity location.
-            let locationExists = MCLocationManager.sharedInstance.checkLocationExists(lat: mood.moodLat, lon: mood.moodLon)
+            do{
+                let newLocation = CLLocation(latitude: mood.moodLat, longitude: mood.moodLon)
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Location")
+                let locationResults = try container?.viewContext.fetch(request)
+                if(locationResults?.count != 0){
+                    for locResult in locationResults!{
+                        let loc : CLLocation = CLLocation(latitude: (locResult as! NSManagedObject).value(forKey: "locationlat") as! CLLocationDegrees, longitude: (locResult as! NSManagedObject).value(forKey:"locationlon") as!CLLocationDegrees)
+                        if loc.distance(from: newLocation) < (locResult as! NSManagedObject).value(forKey: "distancethreshold") as! Double{
+                            locationExists = true
+                            existingLocation = locResult as? NSManagedObject
+                        }
+                        
+                    }
+                }
+                
+            }catch{
+                
+            }
+            
+            
             if(locationExists){
                 //Add mood to location
+                
+                let moodsAtLocation = existingLocation?.mutableSetValue(forKey: "moods")
+                moodsAtLocation?.add(newMood)
+                print(moodsAtLocation)
+                
             }else{
                 //Create a new location
                 let entityLocation = NSEntityDescription.entity(forEntityName: "Location", in: (container?.viewContext)!)
                 let newLocation = NSManagedObject(entity: entityLocation!, insertInto: (container?.viewContext)!)
                 newLocation.setValue(mood.moodLat, forKey: "locationlat")
                 newLocation.setValue(mood.moodLon, forKey: "locationlon")
-               
+                newLocation.setValue(Constants.DEFAULT_DISTANCE, forKey: "distancethreshold")
+                
                 newMood.setValue(newLocation, forKey: "moodlocation")
-                newMood.setValue(true, forKey: "hasLocation")
             }
             
-            
+            newMood.setValue(true, forKey: "hasLocation")
+
             
         }
         
@@ -284,7 +309,7 @@ class MCMoodStoreManager: NSObject {
             
         }else if(inLocation != nil){
             //Sort by location first
-            moodsToTest = self.getMoodsForLocation(location: inLocation!);
+            //moodsToTest = self.getMoodsForLocation(location: inLocation!);
         
         }else{
             //We're looking for most common in all moods.
@@ -325,12 +350,40 @@ class MCMoodStoreManager: NSObject {
 
     
     
-    func getMoodsForLocation(location : CLLocationCoordinate2D)->[MCMood]{
+    func getMoodsForLocation(lat : Double, lon : Double)->[MCMood]{
         var moods : [MCMood] = []
+        
         
         return moods
     }
     
+    func getMoodCountForLocation(location : NSManagedObject)->Int{
+        let moodSet : NSSet = location.value(forKey: "moods") as! NSSet
+        return moodSet.count
+    }
+    
+    
+    /*
+     Get all locations in the mood store.
+     */
+    func getAllLocations()->[NSManagedObject]{
+        var locations : [NSManagedObject] = []
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+            let results = try container?.viewContext.fetch(request)
+            if (results?.count)! > 0{
+                for locresult in results!{
+                    let location = locresult as! NSManagedObject
+                    locations.append(location)
+                   
+                }
+            }
+            
+        }catch{
+            
+        }
+        return locations
+    }
     
     
     /*
@@ -372,3 +425,5 @@ class MCMoodStoreManager: NSObject {
 
 
 }
+
+

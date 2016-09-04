@@ -20,6 +20,7 @@ class Constants{
         case HISTORY_MOOD_ALL = 3
     }
     
+    static let DEFAULT_DISTANCE = 50.0
     
     
 }

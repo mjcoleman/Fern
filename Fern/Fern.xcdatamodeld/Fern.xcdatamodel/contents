@@ -7,6 +7,7 @@
         <relationship name="moods" toMany="YES" deletionRule="Nullify" destinationEntity="MoodObject" inverseName="mooddate" inverseEntity="MoodObject" syncable="YES"/>
     </entity>
     <entity name="Location" syncable="YES">
+        <attribute name="distancethreshold" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationlat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationlon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationname" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,8 +22,8 @@
         <relationship name="moodlocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="moods" inverseEntity="Location" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="118"/>
-        <element name="Location" positionX="-4250" positionY="-631" width="128" height="118"/>
         <element name="Day" positionX="-4358" positionY="-810" width="128" height="103"/>
+        <element name="Location" positionX="-4250" positionY="-631" width="128" height="135"/>
+        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="118"/>
     </elements>
 </model>

@@ -40,7 +40,7 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
             
             break
         case .HISTORY_MOOD_LOCATION :
-            moodObjects = manager.getMoodsForLocation(location: (arguments?.moodLocation)!)
+           // moodObjects = manager.getMoodsForLocation(location: (arguments?.moodLocation)!)
             break
         case .HISTORY_MOOD_ALL :
             moodObjects = manager.getMoodsFromStore(number: Constants.ALL_REQUESTS)
@@ -83,6 +83,19 @@ class MCHistoryViewController: UIViewController, UITableViewDelegate, UITableVie
         var layout = calView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
         layout.headerReferenceSize = CGSize(width: 100, height:83)
+        
+        
+        //Location Tests
+        //Get all locations
+        //Create pins on the map for the locations
+        
+        let allLocations : [NSManagedObject] = manager.getAllLocations()
+        for location in allLocations{
+            let pin : MKPointAnnotation = MKPointAnnotation()
+            pin.coordinate = CLLocationCoordinate2D(latitude: location.value(forKey: "locationlat") as! CLLocationDegrees, longitude: location.value(forKey: "locationlon") as! CLLocationDegrees)
+            pin.title = ("Moods Here: \(manager.getMoodCountForLocation(location: location))")
+            mapView.addAnnotation(pin)
+        }
         
     }
 
