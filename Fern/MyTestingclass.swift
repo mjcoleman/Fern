@@ -8,7 +8,7 @@ class MyTestingclass: NSObject {
     let container = MCMoodStoreManager.sharedInstance
     
     func testGetMoodsByDate(){
-        
+    
     }
 
 }
