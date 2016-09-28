@@ -24,6 +24,6 @@
     <elements>
         <element name="Day" positionX="-4358" positionY="-810" width="128" height="103"/>
         <element name="Location" positionX="-4250" positionY="-631" width="128" height="135"/>
-        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="118"/>
+        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="120"/>
     </elements>
 </model>

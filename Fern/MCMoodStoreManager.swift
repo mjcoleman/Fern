@@ -175,6 +175,22 @@ class MCMoodStoreManager: NSObject {
     
     
     /*
+     Adds new notes to an existing Mood
+     */
+    
+    func addNewNotesToMood(notes : String, mood : NSManagedObject){
+        //Boy I better hope I pass an actual mood!
+        mood.setValue(notes, forKey: "moodnotes")
+        do{
+            try container?.viewContext.save()
+            
+        }catch{
+            //Error saving notes to mood. Uh Oh.
+            
+        }
+    }
+    
+    /*
      Will retrieve all Moods from the core data store, convert them to an MCMood, add them to an array and return that array.
      */
     func getMoodsFromStore(number : Int)->[MCMood]{

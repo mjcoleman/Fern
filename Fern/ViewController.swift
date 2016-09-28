@@ -10,22 +10,8 @@ import UIKit
 import CoreData
 import CoreLocation
 
-//Custom Classes
 
-class MCMoodInputView : UIView{
-    @IBOutlet var moodNameField : UITextField!
-    override func draw(_ rect: CGRect) {
-        let drawingContext = UIGraphicsGetCurrentContext()
-        drawingContext?.setLineWidth(1)
-        drawingContext?.setStrokeColor(UIColor.white.cgColor)
-        drawingContext?.move(to: CGPoint(x: self.moodNameField.frame.origin.x, y: self.moodNameField.frame.origin.y + self.moodNameField.frame.size.height + 3))
-        drawingContext?.addLine(to: CGPoint(x: self.moodNameField.frame.origin.x + self.moodNameField.frame.size.width, y: self.moodNameField.frame.origin.y + self.moodNameField.frame.size.height + 3))
-        drawingContext?.strokePath()
-    }
-}
-
-
-class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextViewDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate{
     
     var locationOn : Bool = true
     var locationManager = MCLocationManager.init()
@@ -33,27 +19,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let moodManager : MCMoodStoreManager = MCMoodStoreManager.sharedInstance
     let watchManager : MCWatchSessionManager = MCWatchSessionManager.sharedInstance
     let appDel : AppDelegate = UIApplication.shared.delegate! as! AppDelegate
-
-        
-    @IBOutlet weak var lastMoodLabel: UIButton!
-    @IBOutlet weak var locationToggle: UISwitch!
-    @IBOutlet weak var moodNoteField: UITextView!
-    @IBOutlet weak var moodNameField: UITextField!
-    @IBOutlet var moodTimeDiffLabel : UILabel!
-    @IBOutlet var fernWelcomeText : UILabel!
-    @IBOutlet var moodEntryView : UIVisualEffectView!
-   
+    var originalContentOffset : CGPoint = CGPoint(x:0,y:0)
+    var currentMood : NSManagedObject?
     
-    @IBOutlet var moodInputView : UIView!
+    @IBOutlet var moodNameField : UITextField!
+    @IBOutlet var moodInputStatusField : UILabel!
+    @IBOutlet var addNotesButton : UIButton!
+    @IBOutlet var showHistoryButton : UIButton!
+    @IBOutlet var newMoodButton : UIButton!
+    @IBOutlet var scrollingMoodView : UIScrollView!
     @IBOutlet var notesView : UIView!
+    @IBOutlet var moodNotesField : UITextView!
     
+    
+    @IBOutlet var historyScrollView : MCHomeHistoryScrollView!
+    
+
     //Overriden Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        moodNameField.delegate = self;
-        moodNoteField.delegate = self;
         
         //Move to "first run" function.
         self.locationOn = locationManager.locationEnabled
@@ -62,23 +48,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         
         //Notification center stuff
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.setupInterface), name:NSNotification.Name(rawValue: "updateUI"), object: nil)
-        
-        
-        notesView.frame = CGRect(x: self.view.frame.width + 20, y: notesView.frame.origin.y, width: notesView.frame.size.width, height: notesView.frame.size.height);
-        
-        
-        
-        var array = moodManager.getMostCommonMoods(inDateRange: nil, inLocation: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setupInterface), name:NSNotification.Name(rawValue: "backgrounded"), object: nil)
 
         
-        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.setupInterface()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let startY : Int = Int(newMoodButton.frame.origin.y + newMoodButton.frame.size.height)
+        let endY : Int = Int(showHistoryButton.frame.origin.y) - startY
+        
+        //Maybe this will fix autolayouts bullshit
+        historyScrollView.frame = CGRect(x: 0, y: startY, width:Int(self.view.frame.size.width), height:endY)
+        
+        self.view.endEditing(false)
+        
+        //Get last 5 moods from mood manager
+        historyScrollView.addMoods(moods:moodManager.getMoodsFromStore(number: 5))
     }
     
 
@@ -98,31 +93,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     //Functions
     func setupInterface(){
+
         
-       self.moodNameField.text = ""
-       self.moodNoteField.text = ""
-        
-        //Get last Mood from MoodManager
-        lastMood = moodManager.getLastMood()
-        if lastMood?.moodName == ""{
-            //No last mood. HANDLE THIS
-            
-        }else{
-            lastMoodLabel.setTitle(lastMood?.moodName.uppercased(), for: UIControlState.normal)
-           moodTimeDiffLabel.text = (NSDate().timeDifferenceToString(date: (lastMood?.moodDate)!) as String + " you were feeling").uppercased()
-        }
+      
         
         
-       let test = moodManager.getMoodsForLocation(lat: -35.70168164562033, lon: 174.3530903758242)
         
 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if(moodNameField.text == ""){
+            moodNameField.text = "HOW ARE YOU FEELING RIGHT NOW?"
+            moodInputStatusField.isHidden = true
+            addNotesButton.isHidden = true
+        }else{
+            addNotesButton.isHidden = false
+        }
         self.view.endEditing(true)
         return false
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moodInputStatusField.isHidden = false
+        moodNameField.font = UIFont(name: (moodNameField.font?.fontName)!, size: 50)
+        addNotesButton.isHidden = false
+        UIView.animate(withDuration: 0.5, animations:{()->Void in
+           self.moodNameField.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.3)
+
+            })
+        
+        
+    }
+    
+
     
     func firstRunSetup(){
         
@@ -138,25 +142,55 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
         
     }
-
-    @IBAction func AddMood(_ sender: AnyObject) {
+    
+    
+    @IBAction func NewMood(_ sender: AnyObject){
+        UIView.animate(withDuration:1, animations: {
+            self.historyScrollView.frame = CGRect(x: 0, y: self.view.frame.size.height, width: self.historyScrollView.frame.size.width, height: self.historyScrollView.frame.size.height)
+            self.historyScrollView.alpha = 0.0
+            self.newMoodButton.frame = CGRect(x: self.newMoodButton.frame.origin.x, y: self.newMoodButton.frame.origin.y + 80, width: self.newMoodButton.frame.size.width, height: self.newMoodButton.frame.size.height)
+            
+        })
+        let moodEntry = MCMoodEntryViewController()
+        self.view.addSubview(moodEntry.view)
+        
+    }
+    
+    
+    @IBAction func SaveMood(_ sender: AnyObject){
         let currentLocation : CLLocationCoordinate2D = MCLocationManager.sharedInstance.getCurrentLocation()
         
-        let newMood : MCMood = MCMood(name: moodNameField.text! as NSString, notes: moodNoteField.text! as NSString?, lat:currentLocation.latitude , lon: currentLocation.longitude, date: NSDate())
+        let newMood : MCMood = MCMood(name: moodNameField.text! as NSString, notes:moodNotesField.text as NSString?, lat:currentLocation.latitude , lon: currentLocation.longitude, date: NSDate())
         let success : Bool = moodManager.addMoodToStore(mood: newMood)
-       
+        
         if !success{
-            print("Couldn't add mood") 
+            print("Couldn't add mood")
             
         }
-        self.setupInterface()
+        moodNotesField.resignFirstResponder()
+        scrollingMoodView.setContentOffset(originalContentOffset, animated: true)
+        notesView.isHidden = true
         self.view.endEditing(true)
+        moodInputStatusField.isHidden = false
         
-        if(self.notesView.frame.origin.x < self.view.frame.size.width){
-            self.CancelNotes(self);
-        }
-        
+    }
     
+    @IBAction func SaveNotes(_ sender: AnyObject){
+        moodNotesField.resignFirstResponder()
+        scrollingMoodView.setContentOffset(originalContentOffset, animated: true)
+        notesView.isHidden = true
+    }
+    
+    @IBAction func AddNotes(_ sender: AnyObject){
+        addNotesButton.isHidden = true
+        notesView.isHidden = false
+        moodInputStatusField.isHidden = true
+        scrollingMoodView.setContentOffset(CGPoint(x:scrollingMoodView.frame.origin.x, y:moodNameField.frame.origin.y+140), animated: true)
+        moodNameField.isEnabled = false
+        moodNotesField.becomeFirstResponder()
+    
+        
+        
     }
     
     @IBAction func ViewHistory(_ sender: AnyObject){
@@ -165,19 +199,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
     }
     
-    @IBAction func AddNotes(_ sender: AnyObject){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.notesView.frame = CGRect(x: 10, y: self.notesView.frame.origin.y, width: self.notesView.frame.size.width, height: self.notesView.frame.size.height);
-            self.moodInputView.frame = CGRect(x: 0 - self.moodInputView.frame.size.width, y: self.moodInputView.frame.origin.y, width: self.moodInputView.frame.size.width, height: self.moodInputView.frame.size.height);
-            
-        })
-    }
-    
-    @IBAction func CancelNotes(_ sender: AnyObject){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.moodInputView.frame = CGRect(x: 10, y: self.moodInputView.frame.origin.y, width: self.moodInputView.frame.size.width, height: self.moodInputView.frame.size.height);
-            self.notesView.frame = CGRect(x: self.view.frame.width + 20, y: self.notesView.frame.origin.y, width: self.notesView.frame.size.width, height: self.notesView.frame.size.height);
-            
-        })
-    }
-}
+   }

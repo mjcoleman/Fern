@@ -35,10 +35,10 @@ class MoodDetailsViewController: UIViewController {
         moodNotes.text = moodData?.moodNotes
         moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
         moodCountLabel.setTitle(("YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " \(MCMoodStoreManager.sharedInstance.getCountForMoodName(name: (moodData?.moodName)!)) TIMES"), for:UIControlState.normal)
-       
         
     }
 
+    
     
 
     override func didReceiveMemoryWarning() {
