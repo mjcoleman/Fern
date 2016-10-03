@@ -18,6 +18,7 @@ class MCMood: NSObject {
     var moodName : String = ""
     var moodNotes : String?
     var moodDate : NSDate?
+    var moodTime : NSDate!
     var moodLat : Double=0
     var moodLon : Double=0
     var moodLocation : CLLocationCoordinate2D?
@@ -48,16 +49,19 @@ class MCMood: NSObject {
     let date : NSManagedObject = object.value(forKey: "mooddate") as! NSManagedObject
     
     moodDate = date.value(forKey: "date") as! NSDate!
+    moodTime = object.value(forKey: "moodtime") as! NSDate
     
     }
     
     
-    init(name : NSString, notes : NSString?, lat : Double?, lon : Double?, date : NSDate){
+    init(name : NSString, notes : NSString?, lat : Double?, lon : Double?, locName : String?, date : NSDate){
         moodName = name as String
         moodNotes = notes as String?
         moodLat = (lat as Double?)!
         moodLon = (lon as Double?)!
         moodDate = date
+        moodLocationName = locName
+        moodTime = date
         
         if moodLat == 0{
             if moodLon == 0{

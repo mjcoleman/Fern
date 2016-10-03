@@ -30,7 +30,7 @@ class MCMoodStoreManager: NSObject {
      */
     func getLastMood() -> MCMood{
         
-        var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, date: NSDate.distantPast as NSDate)
+        var lastMood = MCMood(name: "", notes: "", lat: 0.0, lon: 0.0, locName: "", date: NSDate.distantPast as NSDate)
         
         //Get the count of items in the data store
         let countRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
@@ -71,6 +71,7 @@ class MCMoodStoreManager: NSObject {
         let newMood = NSEntityDescription.insertNewObject(forEntityName: "MoodObject", into: (container?.viewContext)!)
         newMood.setValue(mood.moodName, forKey: "moodname")
         newMood.setValue(mood.moodNotes, forKey: "moodnotes")
+        newMood.setValue(mood.moodTime, forKey: "moodtime")
         
         let currentDate  = NSDate()
         //Is there an entity matching day/month/year?
@@ -148,6 +149,7 @@ class MCMoodStoreManager: NSObject {
                 let newLocation = NSManagedObject(entity: entityLocation!, insertInto: (container?.viewContext)!)
                 newLocation.setValue(mood.moodLat, forKey: "locationlat")
                 newLocation.setValue(mood.moodLon, forKey: "locationlon")
+                newLocation.setValue(mood.moodLocationName, forKey:"locationname")
                 newLocation.setValue(Constants.DEFAULT_DISTANCE, forKey: "distancethreshold")
                 
                 newMood.setValue(newLocation, forKey: "moodlocation")
@@ -196,9 +198,18 @@ class MCMoodStoreManager: NSObject {
     func getMoodsFromStore(number : Int)->[MCMood]{
         var allMoods : [MCMood]=[]
         do{
+            
+      
+            
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
             if(number < Constants.ALL_REQUESTS){
                 request.fetchLimit = number
+                if(self.getCountOfMoodsInStore() > number){
+                    request.fetchOffset = (self.getCountOfMoodsInStore() - number)
+                }
+                
+                
+                
             }
             let allResults = try container?.viewContext.fetch(request)
             for obj in allResults!{
@@ -313,6 +324,22 @@ class MCMoodStoreManager: NSObject {
     
     
     /*
+     Returns an int with the count of all moods in the store
+    */
+    func getCountOfMoodsInStore()->Int{
+        let countRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MoodObject")
+        countRequest.resultType = .countResultType
+        var moodCount : NSInteger
+        
+        do{
+            try moodCount = (container?.viewContext.count(for: countRequest))!
+        }catch {
+            moodCount = 0
+        }
+        return moodCount
+    }
+    
+    /*
      REWRITE
      Looks through all moods to find most common moods and returns those as a string array.
     */
@@ -399,6 +426,33 @@ class MCMoodStoreManager: NSObject {
             
         }
         return locations
+    }
+    
+    /*
+     Get the name of a possible existing location.
+     Returns the name if found, nil if not.
+    */
+    func getNameForLocation(location : CLLocationCoordinate2D) -> String?{
+        do{
+            let newLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Location")
+            let locationResults = try container?.viewContext.fetch(request)
+            if(locationResults?.count != 0){
+                for locResult in locationResults!{
+                    let loc : CLLocation = CLLocation(latitude: (locResult as! NSManagedObject).value(forKey: "locationlat") as! CLLocationDegrees, longitude: (locResult as! NSManagedObject).value(forKey:"locationlon") as!CLLocationDegrees)
+                    if loc.distance(from: newLocation) < (locResult as! NSManagedObject).value(forKey: "distancethreshold") as! Double{
+                        let existingLocation = locResult as? NSManagedObject
+                        return existingLocation?.value(forKey: "locationname") as? String
+                    }
+                    
+                }
+            }
+            
+        }catch{
+            
+        }
+        return nil
+
     }
     
     

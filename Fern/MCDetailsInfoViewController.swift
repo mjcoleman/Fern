@@ -1,22 +1,36 @@
 //
-//  MCNotesViewController.swift
+//  MCDetailsInfoViewController.swift
 //  Fern
 //
-//  Created by Michael Coleman on 4/09/16.
+//  Created by Michael Coleman on 2/10/16.
 //  Copyright © 2016 Michael Coleman. All rights reserved.
 //
 
 import UIKit
+import MapKit
 
-class MCNotesViewController: UIViewController, UITextFieldDelegate {
+class MCDetailsInfoViewController: UIViewController {
 
-    @IBOutlet var notesTextView : UITextView!
-    @IBOutlet var moodLabel : UILabel!
-    @IBOutlet var doneButton : UIButton!
+    //Notes View Outlets
+    @IBOutlet var notesView : UIView?
+    @IBOutlet var notesViewTextView : UITextView?
+    
+    
+    //Location View Outlets
+    @IBOutlet var locationView : UIView?
+    @IBOutlet var locationViewMapView : MKMapView?
+    
+    
+    //Trend View Outlets
+    @IBOutlet var trendsView : UIView?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.notesTextView.becomeFirstResponder()
+        notesView?.backgroundColor = UIColor.clear
+        locationView?.backgroundColor = UIColor.clear
+        trendsView?.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
 

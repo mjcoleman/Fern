@@ -14,30 +14,36 @@ class MoodDetailsViewController: UIViewController {
 
     @IBOutlet weak var moodName: UILabel!
     @IBOutlet weak var moodDate: UILabel!
-    @IBOutlet weak var moodLat: UILabel!
-    @IBOutlet weak var moodLon: UILabel!
-    @IBOutlet weak var moodNotes: UITextView!
-    @IBOutlet weak var moodMap: MKMapView!
-    @IBOutlet var moodCountLabel : UIButton!
+
     
    //Object will be passed from ViewController
     var moodData : MCMood?
     
+    //Scroll View & Contents
+    @IBOutlet var scrollView : UIScrollView!
+    var contentView : MCDetailsInfoViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentView = MCDetailsInfoViewController()
         
-        print(moodData?.moodLocation)
+        self.addChildViewController(contentView)
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: (moodData?.moodLocation)!, span: span)
-        moodMap.setRegion(region, animated: false)
         moodName.text = moodData?.moodName
-        moodNotes.text = moodData?.moodNotes
-        moodDate.text = moodData?.moodDate?.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
-        moodCountLabel.setTitle(("YOU'VE BEEN " + (moodData?.moodName.uppercased())! + " \(MCMoodStoreManager.sharedInstance.getCountForMoodName(name: (moodData?.moodName)!)) TIMES"), for:UIControlState.normal)
+        moodDate.text = moodData?.moodTime.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
+        
+        if(moodData?.moodNotes != nil){
+            //Add the mood notes view to the scroll view.
+            contentView.notesViewTextView?.text = moodData?.moodNotes
+            scrollView.addSubview(contentView.notesView!)
+            
+        }
+        
+        
         
     }
 
+    
     
     
 
@@ -47,13 +53,8 @@ class MoodDetailsViewController: UIViewController {
     }
     
     @IBAction func close(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    
-    @IBAction func showAllMoods(_ sender: AnyObject){
-        let historyView = storyboard?.instantiateViewController(withIdentifier: "historyview") as! MCHistoryViewController
-        historyView.setupView(categoryType: Constants.HISTORY_CATEGORY_TYPE.HISTORY_MOOD_NAME, arguments: (moodData?.moodName, nil, nil, nil, nil))
-        self.present(historyView, animated: true, completion: nil)
-    }
+   
 }

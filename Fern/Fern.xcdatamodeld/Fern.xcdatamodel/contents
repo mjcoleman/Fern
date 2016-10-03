@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11224.2" systemVersion="16A304a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16B2333a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Day" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="datename" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,12 +18,13 @@
         <attribute name="hasLocation" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="moodname" attributeType="String" syncable="YES"/>
         <attribute name="moodnotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moodtime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="mooddate" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="moods" inverseEntity="Day" syncable="YES"/>
         <relationship name="moodlocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="moods" inverseEntity="Location" syncable="YES"/>
     </entity>
     <elements>
         <element name="Day" positionX="-4358" positionY="-810" width="128" height="103"/>
         <element name="Location" positionX="-4250" positionY="-631" width="128" height="135"/>
-        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="120"/>
+        <element name="MoodObject" positionX="-4671" positionY="-738" width="128" height="135"/>
     </elements>
 </model>

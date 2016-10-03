@@ -15,7 +15,6 @@
 		4C2AB5891D484856000633A0 /* MCMoodCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB5881D484856000633A0 /* MCMoodCellController.swift */; };
 		4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */; };
 		4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AB58C1D484A6A000633A0 /* MCMood.swift */; };
-		4C2D582E1D7BEEAC0093017A /* MCNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D582D1D7BEEAC0093017A /* MCNotesViewController.swift */; };
 		4C3609121D471CC8007A9AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3609111D471CC8007A9AB1 /* MapKit.framework */; };
 		4C5D75AA1D52FE40004F6840 /* MCWatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */; };
 		4C5E088B1D5345B9005F4433 /* MCTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */; };
@@ -60,6 +59,8 @@
 		4CDACC181D603C720062EB10 /* MCHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDACC171D603C720062EB10 /* MCHistory.xib */; };
 		4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */; };
 		4CDE4B771D533974006D0AF8 /* MCAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */; };
+		4CDEC5E01DA0B76E009AE424 /* MCDetailsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEC5DE1DA0B76E009AE424 /* MCDetailsInfoViewController.swift */; };
+		4CDEC5E11DA0B76E009AE424 /* MCDetailsInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEC5DF1DA0B76E009AE424 /* MCDetailsInfoViewController.xib */; };
 		4CF7A3141D4879C500BBB9AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBBCF601D46E4FA000A413E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,7 +113,6 @@
 		4C2AB5881D484856000633A0 /* MCMoodCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMoodCellController.swift; sourceTree = "<group>"; };
 		4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCHistoryViewController.swift; sourceTree = "<group>"; };
 		4C2AB58C1D484A6A000633A0 /* MCMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCMood.swift; sourceTree = "<group>"; };
-		4C2D582D1D7BEEAC0093017A /* MCNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNotesViewController.swift; sourceTree = "<group>"; };
 		4C3609111D471CC8007A9AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C5D75A91D52FE40004F6840 /* MCWatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCWatchSessionManager.swift; sourceTree = "<group>"; };
 		4C5E088A1D5345B9005F4433 /* MCTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTutorialView.xib; sourceTree = "<group>"; };
@@ -164,6 +164,8 @@
 		4CDACC171D603C720062EB10 /* MCHistory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCHistory.xib; sourceTree = "<group>"; };
 		4CDE4B721D531BBD006D0AF8 /* MCLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCLocationManager.swift; sourceTree = "<group>"; };
 		4CDE4B761D533974006D0AF8 /* MCAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAnnotationView.xib; sourceTree = "<group>"; };
+		4CDEC5DE1DA0B76E009AE424 /* MCDetailsInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDetailsInfoViewController.swift; sourceTree = "<group>"; };
+		4CDEC5DF1DA0B76E009AE424 /* MCDetailsInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCDetailsInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,18 +209,14 @@
 		4C2AB5911D486237000633A0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
-				4C6FFA781D9B8C1700AB1927 /* MCMoodEntryViewController.swift */,
-				4C6FFA721D9B5C6000AB1927 /* MCHomeHistoryScrollView.swift */,
-				4C6FFA741D9B5E9400AB1927 /* MCMainPageHistoryItemViewController.swift */,
-				4C2D582D1D7BEEAC0093017A /* MCNotesViewController.swift */,
+				4CDEC5E21DA0B892009AE424 /* Main Page */,
+				4CDEC5E31DA0B8B1009AE424 /* Details Page */,
 				4C2AB58A1D4848C5000633A0 /* MCHistoryViewController.swift */,
 				4C60A0231D63F72E000A51E3 /* MCCollectionHeaderView.swift */,
 				4CD849BC1D61BD970004ECFA /* MCCalCellCollectionViewCell.swift */,
 				4CD849B41D6196B90004ECFA /* MCTableSectionHeaderViewController.swift */,
 				4C7336581D60170B009480D0 /* MCAuthenticationViewController.swift */,
 				4C2AB5881D484856000633A0 /* MCMoodCellController.swift */,
-				4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */,
 				4CC41B271D48A18900FD6B99 /* MCSettingsViewController.swift */,
 			);
 			name = "View Controllers";
@@ -337,6 +335,27 @@
 				4CBBCF601D46E4FA000A413E /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CDEC5E21DA0B892009AE424 /* Main Page */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBCF301D46E4E7000A413E /* ViewController.swift */,
+				4C6FFA781D9B8C1700AB1927 /* MCMoodEntryViewController.swift */,
+				4C6FFA721D9B5C6000AB1927 /* MCHomeHistoryScrollView.swift */,
+				4C6FFA741D9B5E9400AB1927 /* MCMainPageHistoryItemViewController.swift */,
+			);
+			name = "Main Page";
+			sourceTree = "<group>";
+		};
+		4CDEC5E31DA0B8B1009AE424 /* Details Page */ = {
+			isa = PBXGroup;
+			children = (
+				4CDEC5DE1DA0B76E009AE424 /* MCDetailsInfoViewController.swift */,
+				4CDEC5DF1DA0B76E009AE424 /* MCDetailsInfoViewController.xib */,
+				4CBBCF621D46F0B1000A413E /* MoodDetailsViewController.swift */,
+			);
+			name = "Details Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +504,7 @@
 				4CBBCF391D46E4E7000A413E /* Assets.xcassets in Resources */,
 				4C0EF2C11D6E973700BF87FE /* ISSUES.rtf in Resources */,
 				4CD849B31D6196340004ECFA /* MCTableSectionHeader.xib in Resources */,
+				4CDEC5E11DA0B76E009AE424 /* MCDetailsInfoViewController.xib in Resources */,
 				4C6FFA7B1D9B8C1700AB1927 /* MCMoodEntryViewController.xib in Resources */,
 				4CBBCF341D46E4E7000A413E /* Main.storyboard in Resources */,
 			);
@@ -518,6 +538,7 @@
 				4C6FFA761D9B5E9400AB1927 /* MCMainPageHistoryItemViewController.swift in Sources */,
 				4CB35B3A1D791ECD00B7AC0A /* MyTestingclass.swift in Sources */,
 				4CD849B71D61B2D90004ECFA /* Constants.swift in Sources */,
+				4CDEC5E01DA0B76E009AE424 /* MCDetailsInfoViewController.swift in Sources */,
 				4CBBCF631D46F0B1000A413E /* MoodDetailsViewController.swift in Sources */,
 				4CDE4B731D531BBD006D0AF8 /* MCLocationManager.swift in Sources */,
 				4C2AB58B1D4848C5000633A0 /* MCHistoryViewController.swift in Sources */,
@@ -527,7 +548,6 @@
 				4C2AB58D1D484A6A000633A0 /* MCMood.swift in Sources */,
 				4CD849B51D6196B90004ECFA /* MCTableSectionHeaderViewController.swift in Sources */,
 				4C9A53EE1D4EF4F20067F558 /* MCMoodStoreManager.swift in Sources */,
-				4C2D582E1D7BEEAC0093017A /* MCNotesViewController.swift in Sources */,
 				4CBBCF2F1D46E4E7000A413E /* AppDelegate.swift in Sources */,
 				4C7336591D60170B009480D0 /* MCAuthenticationViewController.swift in Sources */,
 			);

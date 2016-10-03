@@ -17,30 +17,31 @@ extension NSDate{
         let intervalInSeconds : Double = interval as Double
         
         if intervalInSeconds < 60 {
-            return "Just now"
+            return "JUST NOW "
         }
-        if intervalInSeconds > 60 && intervalInSeconds < 120{
-            return "A Minute Ago"
+        if intervalInSeconds > 60 && intervalInSeconds < 3600{
+            let mins : Int = (Int(intervalInSeconds) / 60)
+            if(mins == 1){
+                return "\(mins) MINUTE AGO" as NSString
+            }
+            return "\(mins) MINUTES AGO" as NSString
         }
-        if intervalInSeconds > 120 && intervalInSeconds < 300{
-            return "A Few Minutes Ago"
+        if intervalInSeconds > 3600 && intervalInSeconds  < 86400{
+            let hours : Int = (Int(intervalInSeconds) / 60) / 60
+            if(hours == 1){
+                return "\(hours) HOUR AGO" as NSString
+            }
+            return "\(hours) HOURS AGO" as NSString
+            
         }
-        if intervalInSeconds > 300 && intervalInSeconds < 360{
-            return "Five Minutes Ago"
+        if intervalInSeconds > 86400 && intervalInSeconds < 604800{
+            let days : Int = (Int((intervalInSeconds) / 60) / 60) / 24
+            if(days == 1){
+                return "\(days) DAY AGO" as NSString
+
+            }
+            return "\(days) DAYS AGO" as NSString
         }
-        if intervalInSeconds > 360 && intervalInSeconds < 600{
-            return "Less than Ten Minutes Ago"
-        }
-        if intervalInSeconds > 600 && intervalInSeconds < 660{
-            return "Ten Minutes Ago"
-        }
-        if intervalInSeconds > 660 && intervalInSeconds < 900{
-            return "Less than Fifteen Minutes Ago"
-        }
-        if intervalInSeconds > 900 && intervalInSeconds < 960{
-            return "Fifteen Minutes Ago"
-        }
-        
         
         return "An hour ago"
     }
@@ -87,14 +88,8 @@ extension NSDate{
         return count
     }
     
-    func dateExistsInStore()->Bool{
-        let dateString : String = self.dateToString(hourmin: false, dayofweek: true, daymonth: true, year: true)
-        //Do a fetch request on this date
-        
-     
-        
-        return false
-    }
+    
+    
     
 
     

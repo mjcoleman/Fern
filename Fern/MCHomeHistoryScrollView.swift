@@ -14,12 +14,15 @@ class MCHomeHistoryScrollView: UIScrollView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     var historyContentSize : CGSize!
-    
+    var currentMoodCount : Int = 0
+    var moodViews : [MCMainPageHistoryItemViewController]! = []
     
     
     override func layoutSubviews() {
-        
+        self.delaysContentTouches = false;
+        self.canCancelContentTouches = true;
         self.backgroundColor = UIColor.clear
+        self.isExclusiveTouch = false;
     }
     override func draw(_ rect: CGRect) {
         //Clear Background
@@ -37,32 +40,15 @@ class MCHomeHistoryScrollView: UIScrollView {
 
         
     }
+
     
-    
-    
-    func addMoods(moods : [MCMood]){
-        
-        var viewy : Int = (Int) (self.frame.size.height / 4);
-        
-        for m : MCMood in moods{
-            let moodView = MCMainPageHistoryItemViewController();
-            moodView.moodName = m.moodName
-            
-            if(m.moodLocationName == nil){
-                moodView.moodLocation = m.moodLocationName
-            }
-            
-            
-            moodView.view.frame = CGRect(x: 0, y: viewy, width: Int(self.frame.size.width), height: 60);
-            self.addSubview(moodView.view);
-            viewy += (60 + (Int)(self.frame.size.height / 6));
+    override func touchesShouldCancel(in view: UIView) -> Bool {
+        if(view is UIButton){
+            return true
         }
-        
-        self.contentSize = CGSize(width: (Int)(self.frame.size.width), height: viewy);
-      
-        
-        
-        
+        return super.touchesShouldCancel(in: view)
     }
+    
+  
 
 }

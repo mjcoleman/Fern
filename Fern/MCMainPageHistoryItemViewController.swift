@@ -13,22 +13,26 @@ class MCMainPageHistoryItemViewController: UIViewController {
     @IBOutlet var moodNameLabel : UILabel!
     @IBOutlet var moodTimeLabel : UILabel!
     @IBOutlet var moodLocationLabel : UILabel!
+    @IBOutlet var buttonTest : UIButton!
     
     
-    var moodName : String!
-    var moodTime : String!
-    var moodLocation : String?
+
+    var mood : MCMood!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clear;
-        moodNameLabel.text = moodName
-        if(moodLocation == nil){
+        moodNameLabel.text = mood.moodName
+        moodTimeLabel.text = NSDate().timeDifferenceToString(date: mood.moodTime) as String
+        
+        if(mood.moodLocationName == nil){
             moodLocationLabel.isHidden = true
         }else{
-            moodLocationLabel.text = moodLocation!
+            moodLocationLabel.text = "At \(mood.moodLocationName!)"
         }
+        buttonTest.isExclusiveTouch = true
+        
         
     }
 
@@ -37,7 +41,13 @@ class MCMainPageHistoryItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setUI(){
+    
+    @IBAction func thisthing(_ sender: AnyObject) {
+        print("Working")
+        let moodDict : [String : MCMood] = ["Mood":mood]
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "moodSelected"), object: nil, userInfo: moodDict)
         
         
     }
