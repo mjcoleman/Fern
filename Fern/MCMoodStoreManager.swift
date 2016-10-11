@@ -141,7 +141,6 @@ class MCMoodStoreManager: NSObject {
                 
                 let moodsAtLocation = existingLocation?.mutableSetValue(forKey: "moods")
                 moodsAtLocation?.add(newMood)
-                print(moodsAtLocation)
                 
             }else{
                 //Create a new location

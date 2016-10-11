@@ -21,6 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let appDel : AppDelegate = UIApplication.shared.delegate! as! AppDelegate
     var originalContentOffset : CGPoint = CGPoint(x:0,y:0)
     var currentMood : NSManagedObject?
+    var didAnimateHistory : Bool = false
+    
     
     @IBOutlet var showHistoryButton : UIButton!
     @IBOutlet var newMoodButton : UIButton!
@@ -51,6 +53,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
 
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if !didAnimateHistory{
+            animateHistory()
+            
+        }
+    }
+    
+    func animateHistory(){
+        var entries = historyScrollView.moodViews
+        
+        for entry in entries!{
+            entry.view.transform = CGAffineTransform(translationX: 0, y: historyScrollView.bounds.size.height)
+            entry.view.alpha = 0.0
+        }
+        
+        var timingDelay : Float = 0.0
+        for entry in entries!{
+            UIView.animate(withDuration: 1, delay: Double(timingDelay * 0.08), options: .curveEaseOut, animations: {
+                entry.view.transform = CGAffineTransform.identity
+                entry.view.alpha = 1.0
+                }, completion: nil)
+            timingDelay += 1
+        }
+        
+        
+        
+    }
+    
+    
     
     override func viewDidDisappear(_ animated: Bool) {
 
@@ -183,7 +214,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             self.historyScrollView.alpha = 0.0
             self.newMoodButton.alpha = 0.0
             self.showHistoryButton.alpha = 0.0
-    //        self.logoLabel.alpha = 0.0
+           self.logoLabel.alpha = 0.0
               self.subLogoLabel.alpha = 0.0
 //            self.newMoodButton.frame = CGRect(x: self.newMoodButton.frame.origin.x, y: self.newMoodButton.frame.origin.y + 80, width: self.newMoodButton.frame.size.width, height: self.newMoodButton.frame.size.height)
 //            
@@ -192,10 +223,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         let moodEntry = MCMoodEntryViewController()
         addChildViewController(moodEntry)
-        moodEntry.view.frame = CGRect(x:0 , y: self.view.frame.size.height / 5, width: self.view.frame.size.width, height: self.view.frame.size.height / 3)
-        moodEntry.contentView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: moodEntry.contentView.frame.size.height)
+        moodEntry.view.frame = CGRect(x:0 , y: 10, width: self.view.frame.size.width, height: self.view.frame.size.height/1.6)
+       // moodEntry.contentView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: moodEntry.view.frame.size.height/1.6)
         self.view.addSubview(moodEntry.view)
-        moodEntry.moodTextField.becomeFirstResponder()
+      //  moodEntry.moodTextField.becomeFirstResponder()
 
     }
     

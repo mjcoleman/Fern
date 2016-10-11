@@ -25,55 +25,45 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pl-rM-eHZ">
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONE HOUR AGO" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9V-R3-xVp">
                     <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="17"/>
                     <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4O-dI-ITX">
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="historydoticon" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-hv-UNg">
+                    <frame key="frameInset" minX="167" minY="23" width="17" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="12" id="cWZ-74-Onm"/>
-                        <constraint firstAttribute="width" constant="12" id="fnV-4m-Tpm"/>
+                        <constraint firstAttribute="width" constant="18" id="L89-rt-mmG"/>
+                        <constraint firstAttribute="height" constant="18" id="hPw-er-R0P"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzb-4R-rQJ">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <action selector="thisthing:" destination="-1" eventType="touchUpInside" id="MiH-mn-NB9"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pl-rM-eHZ">
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="fEf-GB-gjc" firstAttribute="trailing" secondItem="9pl-rM-eHZ" secondAttribute="trailing" id="1FZ-l5-Zlu"/>
-                <constraint firstItem="Qzb-4R-rQJ" firstAttribute="centerX" secondItem="z4O-dI-ITX" secondAttribute="centerX" id="B6l-ki-LCo"/>
-                <constraint firstItem="9pl-rM-eHZ" firstAttribute="top" secondItem="nli-eF-TMK" secondAttribute="top" constant="45" id="Gex-2a-MnK"/>
-                <constraint firstAttribute="bottom" secondItem="9pl-rM-eHZ" secondAttribute="bottom" id="Kno-1s-KOJ"/>
+                <constraint firstItem="Tjc-hv-UNg" firstAttribute="centerX" secondItem="nli-eF-TMK" secondAttribute="centerX" id="6h0-Kk-jCt"/>
+                <constraint firstItem="9pl-rM-eHZ" firstAttribute="top" secondItem="nli-eF-TMK" secondAttribute="top" constant="43" id="Gex-2a-MnK"/>
+                <constraint firstAttribute="bottom" secondItem="9pl-rM-eHZ" secondAttribute="bottom" constant="2" id="Kno-1s-KOJ"/>
                 <constraint firstItem="O9V-R3-xVp" firstAttribute="centerY" secondItem="fEf-GB-gjc" secondAttribute="centerY" id="PGY-WL-pYV"/>
-                <constraint firstItem="Qzb-4R-rQJ" firstAttribute="leading" secondItem="O9V-R3-xVp" secondAttribute="leading" id="T91-xq-zUb"/>
+                <constraint firstItem="Qzb-4R-rQJ" firstAttribute="leading" secondItem="O9V-R3-xVp" secondAttribute="leading" constant="-41" id="T91-xq-zUb"/>
                 <constraint firstItem="fEf-GB-gjc" firstAttribute="top" secondItem="nli-eF-TMK" secondAttribute="top" constant="15" id="VRl-sR-2eB"/>
-                <constraint firstItem="Qzb-4R-rQJ" firstAttribute="centerY" secondItem="z4O-dI-ITX" secondAttribute="centerY" id="a3a-uS-mRV"/>
-                <constraint firstItem="fEf-GB-gjc" firstAttribute="leading" secondItem="z4O-dI-ITX" secondAttribute="trailing" constant="8" symbolic="YES" id="avt-ur-MEd"/>
-                <constraint firstAttribute="trailing" secondItem="fEf-GB-gjc" secondAttribute="trailing" constant="5" id="bul-8e-Nnx"/>
-                <constraint firstItem="O9V-R3-xVp" firstAttribute="leading" secondItem="nli-eF-TMK" secondAttribute="leading" id="fL3-cJ-6Cv"/>
+                <constraint firstAttribute="trailing" secondItem="fEf-GB-gjc" secondAttribute="trailing" constant="96.5" id="bul-8e-Nnx"/>
+                <constraint firstItem="O9V-R3-xVp" firstAttribute="leading" secondItem="nli-eF-TMK" secondAttribute="leading" constant="41" id="fL3-cJ-6Cv"/>
                 <constraint firstItem="Qzb-4R-rQJ" firstAttribute="top" secondItem="nli-eF-TMK" secondAttribute="top" constant="11" id="gO8-do-Ut5"/>
-                <constraint firstItem="z4O-dI-ITX" firstAttribute="centerY" secondItem="nli-eF-TMK" secondAttribute="centerY" id="iYB-1s-WIU"/>
                 <constraint firstItem="O9V-R3-xVp" firstAttribute="top" secondItem="nli-eF-TMK" secondAttribute="top" constant="21" id="inu-mI-wLD"/>
-                <constraint firstItem="z4O-dI-ITX" firstAttribute="centerX" secondItem="nli-eF-TMK" secondAttribute="centerX" id="mJE-xd-knk"/>
-                <constraint firstItem="O9V-R3-xVp" firstAttribute="centerY" secondItem="z4O-dI-ITX" secondAttribute="centerY" id="msL-hR-QW3"/>
+                <constraint firstItem="Tjc-hv-UNg" firstAttribute="centerY" secondItem="nli-eF-TMK" secondAttribute="centerY" id="l9P-0w-ecQ"/>
                 <constraint firstItem="fEf-GB-gjc" firstAttribute="leading" secondItem="9pl-rM-eHZ" secondAttribute="leading" id="o0a-0y-VtA"/>
-                <constraint firstItem="z4O-dI-ITX" firstAttribute="leading" secondItem="O9V-R3-xVp" secondAttribute="trailing" constant="8" symbolic="YES" id="t3e-Yx-f5r"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -82,4 +72,7 @@
             <point key="canvasLocation" x="-293.5" y="-184"/>
         </view>
     </objects>
+    <resources>
+        <image name="historydoticon" width="256" height="256"/>
+    </resources>
 </document>

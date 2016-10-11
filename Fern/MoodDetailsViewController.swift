@@ -14,7 +14,9 @@ class MoodDetailsViewController: UIViewController {
 
     @IBOutlet weak var moodName: UILabel!
     @IBOutlet weak var moodDate: UILabel!
-
+    @IBOutlet var stackView : UIStackView!
+    @IBOutlet var notesTextView : UITextView!
+    
     
    //Object will be passed from ViewController
     var moodData : MCMood?
@@ -25,19 +27,11 @@ class MoodDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView = MCDetailsInfoViewController()
         
-        self.addChildViewController(contentView)
+      //  moodName.text = moodData?.moodName
+       // moodDate.text = moodData?.moodTime.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
         
-        moodName.text = moodData?.moodName
-        moodDate.text = moodData?.moodTime.dateToString(hourmin: true, dayofweek: true, daymonth: true, year: true)
-        
-        if(moodData?.moodNotes != nil){
-            //Add the mood notes view to the scroll view.
-            contentView.notesViewTextView?.text = moodData?.moodNotes
-            scrollView.addSubview(contentView.notesView!)
-            
-        }
+      //  notesTextView.text = moodData?.moodNotes
         
         
         
