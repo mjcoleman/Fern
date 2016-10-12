@@ -21,9 +21,16 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     @IBOutlet var locationButton : UIButton!
     @IBOutlet var notesButton : UIButton!
-
+    @IBOutlet var moodButton : UIButton!
+    
+    @IBOutlet var titleTextView : UITextField!
+    
+    
     
     @IBOutlet var stack : UIStackView!
+    @IBOutlet var topStack : UIStackView!
+    
+    
     @IBOutlet var notesTextView : UITextView!
     
     
@@ -58,14 +65,22 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
         locationButton.layer.borderWidth = 1.0
         notesButton.layer.borderColor = UIColor.white.cgColor
         notesButton.layer.borderWidth = 1.0
+        moodButton.layer.borderColor = UIColor.white.cgColor
+        moodButton.layer.borderWidth = 1.0
+        moodButton.imageView?.contentMode = .scaleAspectFit
         
-        var notesView = stack.arrangedSubviews[1]
-        var locationView = stack.arrangedSubviews[2]
+        
+        let notesView = stack.arrangedSubviews[1]
+        let locationView = stack.arrangedSubviews[2]
+        moodButton.isHidden = true
         locationView.isHidden = true
         notesView.isHidden = true
+        
         //Delegates
-      //  moodTextField.delegate = self
-      ///  moodLocationField.delegate = self
+        
+        moodTextField.delegate = self
+        locationTextField.delegate = self
+        
         notesTextView.delegate = self;
         
         
@@ -78,6 +93,8 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
            locationButton.setTitleColor(UIColor.black, for: .normal)
             knownLocation = true
             knownLocationName = locationName
+            locationTextField.text = locationName
+            
             
             
         }
@@ -149,56 +166,68 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
 //        //return (moodTextField.text!, moodLocationField.text, moodNotesView.text)
 //    }
     
-   // @IBAction func enterMood(_ sender : AnyObject){
-//        let currentLocation : CLLocationCoordinate2D = MCLocationManager.sharedInstance.getCurrentLocation()
-//        let newMood : MCMood = MCMood(name: moodTextField.text! as NSString, notes: moodNotesView.text! as NSString, lat: currentLocation.latitude, lon: currentLocation.longitude, locName: moodLocationField.text, date: NSDate())
-//        MCMoodStoreManager.sharedInstance.addMoodToStore(mood: newMood)
-//        
-//
-//        self.view.removeFromSuperview()
-//        
-//        
-//        //Post a notification that we're done.
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "moodAdded"), object: nil)
-//        
+    @IBAction func saveMood(_ sender : AnyObject){
+       let currentLocation : CLLocationCoordinate2D = MCLocationManager.sharedInstance.getCurrentLocation()
+       let newMood : MCMood = MCMood(name: newMoodName as NSString, notes: newNotes as NSString, lat: currentLocation.latitude, lon: currentLocation.longitude, locName: newLocationName, date: NSDate())
+        MCMoodStoreManager.sharedInstance.addMoodToStore(mood: newMood)
+        
+
+        self.view.removeFromSuperview()
+        
+       
+        //Post a notification that we're done.
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "moodAdded"), object: nil)
         
         
-   // }
+        
+}
     
     
     func switchTextBoxState(newState : Int){
+        
+        let locationview = stack.arrangedSubviews[2]
+        let notesview = stack.arrangedSubviews[1]
+        let moodview = stack.arrangedSubviews[0]
+        
         switch textBoxState{
         case 0:
             //User was entering mood.
             newMoodName = moodTextField.text!
             
             if newMoodName == ""{
-
+                moodButton.setTitle("Enter Mood", for: .normal)
+                
                 
             }else{
-
+                moodButton.setTitle(newMoodName, for: .normal)
+                moodButton.backgroundColor = UIColor.white
+                moodButton.setTitleColor(UIColor.black, for: .normal)
+                
             }
+            moodButton.isHidden = false
+            titleTextView.isHidden = true
+            
+            moodTextField.resignFirstResponder()
             break;
         case 1:
             //User was entering location.
-            newLocationName = moodTextField.text!
+            newLocationName = locationTextField.text!
             
             
             if  newLocationName == ""{
-//                locationButtonLabel.text = "Set Location"
-//                locationButtonView.backgroundColor = UIColor.clear
-//                locationButtonLabel.textColor = UIColor.white
-//             
-//                self.view.layoutIfNeeded()
+               locationButton.setTitle("Location", for: .normal)
+            locationButton.backgroundColor = UIColor.clear
+                locationButton.setTitleColor(UIColor.white, for: .normal)
                 
             }else{
-//               locationButtonLabel.text = newLocationName
-//                locationButtonView.backgroundColor = UIColor.white
-//                locationButtonLabel.textColor = UIColor.black
-
+               locationButton.setTitle(newLocationName, for: .normal)
+                
+                locationButton.backgroundColor = UIColor.white
+                locationButton.setTitleColor(UIColor.black, for: .normal)
                 
                 
             }
+            locationTextField.resignFirstResponder()
             
             break;
         case 2:
@@ -206,16 +235,19 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
             newNotes = moodTextField.text!
             
             if(newNotes == ""){
-//                notesButtonLabel.text = "Add Notes"
-//                notesButtonView.backgroundColor = UIColor.clear
-//                notesButtonLabel.textColor = UIColor.white;
+               notesButton.setTitle("Add Notes", for: .normal)
+                
+               notesButton.backgroundColor = UIColor.clear
+               notesButton.setTitleColor(UIColor.black, for: .normal)
+                
                 self.view.layoutIfNeeded()
             }else{
-//                notesButtonLabel.text = "Notes"
-//                notesButtonView.backgroundColor = UIColor.white
-//                notesButtonLabel.textColor = UIColor.black;
+                notesButton.setTitle("Notes", for: .normal)
+                notesButton.backgroundColor = UIColor.white
+                notesButton.setTitleColor(UIColor.black, for: .normal)
                 
             }
+            notesTextView.resignFirstResponder()
             break;
         default:
             break;
@@ -225,7 +257,6 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
         switch newState{
         case 0:
             //Heading to mood.
-            moodIconView.image = UIImage.init(imageLiteralResourceName: "moodicon")
             
             if(newMoodName != ""){
                 moodTextField.text = newMoodName
@@ -233,13 +264,20 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
                 moodTextField.text = ""
                 moodTextField.placeholder = "Mood"
             }
+            moodButton.isHidden = true
+            titleTextView.isHidden = false
             
+            moodview.isHidden = false
+            notesview.isHidden = true
+            locationview.isHidden = true
             break;
         case 1:
             //Heading to location.
 
             locationButton.backgroundColor = UIColor.gray
             locationButton.isEnabled = false
+            notesButton.isEnabled = true
+            
             if(newLocationName != ""){
                 
                 locationTextField.text = newLocationName
@@ -251,9 +289,7 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
                     locationTextField.placeholder = "Name"
                     }
                 }
-            let locationview = stack.arrangedSubviews[2]
-            let notesview = stack.arrangedSubviews[1]
-            let moodview = stack.arrangedSubviews[0]
+           locationTextField.becomeFirstResponder()
             moodview.isHidden = true
             notesview.isHidden = true
             locationview.isHidden = false
@@ -262,27 +298,21 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
             break;
         case 2:
             //Heading to notes.
-            //textFieldIconView.image = UIImage.init(imageLiteralResourceName: "notesicon")
             
-            
-            let notesField = UITextView(frame: CGRect(x: 0, y: 0, width: moodTextField.frame.size.width, height: moodTextField.frame.size.height))
-            notesField.backgroundColor = UIColor.white
-           let view0 = stack.arrangedSubviews[0]
-            
-            let view1 = stack.arrangedSubviews[1]
-            
-                view0.isHidden = true;
-                view1.isHidden = false;
-        
+          
+            notesButton.isEnabled = false
+            locationButton.isEnabled = true
             if(newNotes != ""){
                 moodTextField.text = newNotes;
                 
             }else{
                 moodTextField.text = ""
-               // moodTextField.placeholder = "Notes"
                 
             }
-            
+            notesTextView.becomeFirstResponder()
+            moodview.isHidden = true
+            notesview.isHidden = false
+            locationview.isHidden = true
             
             break;
         default:
@@ -308,6 +338,7 @@ class MCMoodEntryViewController: UIViewController, UITextFieldDelegate, UITextVi
         switchTextBoxState(newState: 2)
     }
  
+
 
     /*
     // MARK: - Navigation
